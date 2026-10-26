@@ -7,16 +7,19 @@
  * stripping the `:not(...)` suffix reproduces browser behaviour and only
  * affects the kit's Step component. Idempotent: no-op when already patched.
  */
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const targets = [
   "@legion-ui-kit/react-core/dist/esm/styles.css",
   "@legion-ui-kit/react-core/dist/cjs/styles.css",
 ];
 
+const repoRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+
 for (const rel of targets) {
-  const file = path.join(__dirname, "..", "node_modules", rel);
+  const file = path.join(repoRoot, "node_modules", rel);
   if (!fs.existsSync(file)) continue;
   const css = fs.readFileSync(file, "utf8");
   const patched = css.replace(/(:after|:before):not\([^)]*\)/g, "$1");
