@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { ErrorState } from "@/components/ui/states";
 import { ROUTES } from "@/constants/routes";
 import { PartnerGateNotice } from "@/features/reseller/partner-gate-notice";
+import { SalesChart } from "@/features/reseller/sales-chart";
 import { formatIDR } from "@/lib/utils/format";
 import { PARTNER_TYPE_LABELS, summarizeSales } from "@/services/reseller/model";
 import { listPartnerOrders, requirePartner } from "@/services/reseller/reseller";
@@ -57,7 +58,6 @@ export default async function ResellerDashboardPage() {
 
 function Dashboard({ orders }: { orders: Parameters<typeof summarizeSales>[0] }) {
   const summary = summarizeSales(orders);
-  const peak = Math.max(...summary.months.map((month) => month.total), 0);
 
   return (
     <>
@@ -87,21 +87,7 @@ function Dashboard({ orders }: { orders: Parameters<typeof summarizeSales>[0] })
             untuk mulai berbelanja.
           </p>
         ) : (
-          <ol className="grid grid-cols-6 items-end gap-2" aria-label="Total pembelian per bulan">
-            {summary.months.map((month) => (
-              <li key={month.key} className="flex flex-col items-center gap-2">
-                <span className="sr-only">
-                  {month.label}: {formatIDR(month.total)}
-                </span>
-                <div aria-hidden className="flex h-32 w-full items-end rounded-sm bg-surface">
-                  <div className="w-full rounded-sm bg-brand-cocoa" style={{ height: `${peak > 0 ? Math.max((month.total / peak) * 100, month.total > 0 ? 4 : 0) : 0}%` }} />
-                </div>
-                <span aria-hidden className="text-caption text-text-secondary">
-                  {month.label}
-                </span>
-              </li>
-            ))}
-          </ol>
+          <SalesChart months={summary.months} />
         )}
       </section>
 
