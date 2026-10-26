@@ -3,9 +3,7 @@ import { InsightError } from "@/features/admin/insight-error";
 import { getAnalyticsTrend } from "@/services/admin/analytics";
 import type { Trend, TrendRange } from "@/services/analytics/trend";
 
-const W = 640;
-const H = 200;
-const PAD = 8;
+import { TrendChartGraphic, type TrendPoint } from "./trend-chart-graphic";
 
 const number = (value: number) => value.toLocaleString("id-ID");
 const percent = (value: number | null) => (value === null ? "—" : `${(value * 100).toLocaleString("id-ID", { maximumFractionDigits: 1 })}%`);
@@ -22,19 +20,19 @@ const COLUMNS = [
   { key: "ORDER_CREATED", label: "Pesanan" },
 ] as const;
 
-function points(values: number[], max: number): string {
-  const step = values.length > 1 ? (W - PAD * 2) / (values.length - 1) : 0;
-  return values.map((value, index) => `${PAD + index * step},${H - PAD - (value / max) * (H - PAD * 2)}`).join(" ");
-}
-
 function TrendChart({ trend, months }: { trend: Trend; months: TrendRange }) {
   const pages = trend.weeks.map((week) => week.pageVisitors);
   const orders = trend.weeks.map((week) => week.orderVisitors);
   const max = Math.max(1, ...pages, ...orders);
+  const points: TrendPoint[] = trend.weeks.map((week) => ({
+    label: dayLabel(week.weekStart),
+    pages: week.pageVisitors,
+    orders: week.orderVisitors,
+  }));
   const summary = `Tren mingguan ${months} bulan: pengunjung halaman dari ${number(pages[0] ?? 0)} ke ${number(pages.at(-1) ?? 0)}, pengunjung yang memesan dari ${number(orders[0] ?? 0)} ke ${number(orders.at(-1) ?? 0)}.`;
 
   return (
-    <figure className="flex flex-col gap-3">
+    <figure aria-label={summary} className="flex flex-col gap-3">
       <div className="flex flex-wrap gap-4 text-caption text-text-secondary">
         <span className="flex items-center gap-2">
           <span aria-hidden className="h-0.5 w-6 bg-brand-cocoa" /> Pengunjung halaman
@@ -44,11 +42,7 @@ function TrendChart({ trend, months }: { trend: Trend; months: TrendRange }) {
         </span>
         <span className="ml-auto">Maks. {number(max)} / minggu</span>
       </div>
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={summary} className="h-48 w-full" preserveAspectRatio="none">
-        <line x1={PAD} x2={W - PAD} y1={H - PAD} y2={H - PAD} className="stroke-border" strokeWidth={1} vectorEffect="non-scaling-stroke" />
-        <polyline points={points(pages, max)} fill="none" className="stroke-brand-cocoa" strokeWidth={2} vectorEffect="non-scaling-stroke" />
-        <polyline points={points(orders, max)} fill="none" className="stroke-ai-accent" strokeWidth={2} vectorEffect="non-scaling-stroke" />
-      </svg>
+      <TrendChartGraphic points={points} />
       <figcaption className="flex justify-between text-caption text-text-secondary">
         <span>{dayLabel(trend.weeks[0]?.weekStart ?? trend.from)}</span>
         <span>{dayLabel(trend.to)}</span>
