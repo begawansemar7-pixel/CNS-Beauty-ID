@@ -374,3 +374,118 @@ For each task:
 9. Summarize files changed, validation performed and remaining risks.
 
 Do not claim a feature is complete if validation was not performed.
+
+### Stage Discipline (Legion planning method)
+
+Adapted from Legion Kit `rules/planning.md` for Next.js App Router + Tailwind v4.
+
+Size the task first:
+
+- Small task (single screen, <5 files): do NOT decompose — one direct pass.
+- Large task (multi-screen/multi-feature): decompose into ordered stages, each
+  with `name`, `files` (exact relative paths), `components` rendered (max 7),
+  `routes` registered, and `description` (goal + end result in 1 sentence).
+
+Per-stage limits:
+
+- MAX 1 large page (`src/app/**/page.tsx`) + 1 supporting file per stage.
+- Small files (components/utils/config): max 4 per stage.
+- When in doubt whether a page is "large" → split.
+
+Ordering invariants (violations cause repair loops):
+
+- Foundation ONLY first: `src/app/globals.css` (`@theme` tokens),
+  `src/app/layout.tsx`, provider wiring, `postcss.config.mjs`. No pages and no
+  visual components (Header/Footer/Navbar) in the foundation stage — they
+  consume tokens created in the same stage; mixing them in causes token drift.
+- A file must exist before any file that imports it is written.
+- A page and its entry point (CTA/nav link) land in the same stage or earlier —
+  never leave a dead-end link.
+- Delete a file and clean ALL its importers in the SAME stage.
+- The routing plan is the single source of truth: `src/app/**/page.tsx` paths
+  and nav paths must match it; do not rename routes mid-work.
+- Every stage leaves the app runnable — `npm run build` passes after each stage.
+- Dark mode is a foundation styling concern (paired variables in
+  `globals.css`), never its own stage. Polish (empty/loading/error states) is
+  the final stage.
+
+### Context Checklist Before Writing (Legion context method)
+
+Adapted from Legion Kit `rules/context.md`. NEVER write a file in isolation.
+Before writing stage N, load into working context:
+
+| Stage kind | REQUIRED in context before writing |
+|---|---|
+| Foundation (stage 1) | requirement + plan only (no files exist yet) |
+| Any later stage | `src/app/globals.css`, `package.json` (dep list), `src/app/layout.tsx`, active group layout |
+| Stage touching shell/nav | `src/components/layout/site-header.tsx` / `site-footer.tsx` / `nav-links.tsx` |
+| Stage writing page X | every file page X imports, esp. `states.tsx` and features from earlier stages |
+| Modifying existing file F | the CURRENT content of F (never edit from memory) |
+
+1. List the files that exist NOW.
+2. Read every file the stage will import or modify — only then write.
+3. A needed file that does not exist is a PLANNING gap: create it in this
+   stage or fix the plan. Never import a file merely assumed to exist.
+
+After each stage: every import must resolve to a file on disk NOW, and every
+token used in `className` must exist in `globals.css` `@theme`. Re-inject
+changed files into context for the next stage that touches them — stale
+context is worse than none.
+
+### Repair Rounds (max 3, Legion repair method)
+
+Adapted from Legion Kit `rules/repair.md`. On build/runtime failure:
+
+1. DIAGNOSE PER-FILE before concluding anything. Name the file and the exact
+   construct that fails. Never jump from one symptom to "files are missing" or
+   "regenerate everything".
+2. Fix the ROOT signature, not the symptom. Re-running the same failed approach
+   without a new diagnosis is waste.
+3. Max 3 repair rounds with genuinely different diagnoses — then stop and
+   report honestly what was tried. Do not loop.
+4. After ANY fix, verify with a fresh `npm run build` / `npm run validate`
+   before claiming success.
+
+Common signatures (Next.js + Tailwind v4):
+
+- Unstyled app but healthy build: `globals.css` missing `@import "tailwindcss"`
+  or not reached by the layout chain — check CSS output markers first.
+- Dead utility class: token missing from `@theme`, or dynamic template-string
+  class (`text-${var}`) — use a literal class; never raw hex in components.
+- "X is not defined" / module not found after a stage: missing import or wrong
+  relative path — list the directory before rewriting anything.
+- Hydration mismatch: server/client render difference (locale/time formatting,
+  `window` access) — format in one place only.
+
+Report format (mandatory):
+
+```
+symptom: <exact error/build output>
+diagnosis: <file + construct, verified by reading the file>
+action: <minimal fix applied>
+verified: <fresh build/validate result>
+```
+
+### Example Stage Plan
+
+Illustrative plan for a feature that does not exist yet (Journal), showing the
+shape every stage must report:
+
+```
+stage 1 — listing page + entry point (same stage — no dead-end link):
+          src/app/(storefront)/journal/page.tsx
+          + src/components/journal/journal-list.tsx
+          + nav entry in src/components/layout/nav-links.tsx
+          routes: /journal            components: journal-list, states
+          → 1 large page + 1 supporting file; browseable index
+stage 2 — detail page + its entry links (same stage):
+          src/app/(storefront)/journal/[slug]/page.tsx
+          + src/components/journal/journal-entry.tsx
+          routes: /journal/[slug]     components: journal-entry
+          → listing items link here; entry links land with the page
+stage 3 — polish: loading/empty/error wiring in src/components/ui/states.tsx
+          → all four UI states covered (CLAUDE.md §15)
+```
+
+Tokens live in `src/app/globals.css` and are never a separate stage; each
+stage ends with `npm run build` green.
