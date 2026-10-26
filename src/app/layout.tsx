@@ -35,7 +35,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#191410" },
+    { color: "#ffffff" },
+  ],
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -44,6 +47,15 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="id" className={`${cormorant.variable} ${inter.variable}`}>
+      {/* Legion dark-mode default: class-based, driven by system preference. */}
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'document.documentElement.classList.toggle("dark",window.matchMedia("(prefers-color-scheme: dark)").matches)',
+          }}
+        />
+      </head>
       <body className="flex min-h-dvh flex-col">
         <SkipLink />
         {children}

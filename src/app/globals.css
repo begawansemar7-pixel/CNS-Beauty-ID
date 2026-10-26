@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
 /*
+ * Legion profile (rules/frontend.md §2): class-based dark variant.
+ * Dark tokens are paired below under `html.dark` (see "Dark mode").
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
  * CNS Beauty design tokens — single source of truth.
  *
  * Tailwind's default palette, fonts, radii, shadows and breakpoints are reset
@@ -148,6 +154,49 @@
 
 @theme inline {
   --spacing-section: var(--section-y);
+
+  /*
+   * Legion kit compatibility aliases (rules/frontend.md §2): the kit's
+   * component docs use foreground/accent semantic classes. Mapped to the CNS
+   * token chain so they track dark mode automatically.
+   */
+  --color-foreground: var(--color-text-primary);
+  --color-accent: var(--color-brand-cocoa);
+}
+
+/*
+ * Dark mode (Legion: mandatory styling default — class-based, paired
+ * variables). `html.dark` is set by the inline script in the root layout from
+ * `prefers-color-scheme`. Only values change here, never token names.
+ * Contrast: re-measured for WCAG 2.2 AA — see docs/DESIGN_TOKENS.md.
+ */
+html.dark {
+  color-scheme: dark;
+
+  --color-primary: #f2ebe4;
+  --color-on-primary: #241c16;
+  --color-secondary: #2b221b;
+  --color-background: #191410;
+  --color-surface: #221b15;
+  --color-text-primary: #f4ede6;
+  --color-text-secondary: #cfc3b8;
+  --color-text-muted: #a1938a;
+  --color-border: #3c3129;
+  --color-success: #86b394;
+  --color-warning: #d3a75f;
+  --color-error: #dd9090;
+  --color-ai-surface: #2a211a;
+  --color-ai-accent: #cbb396;
+  --color-overlay: rgb(0 0 0 / 0.6);
+
+  /* Brand surfaces flip to warm darks; accents stay decorative-light. */
+  --color-brand-cocoa: #e0b09f;
+  --color-brand-cocoa-dark: #eecabe;
+  --color-brand-blush-soft: #3a2b26;
+  --color-brand-peach: #40302a;
+  --color-brand-cream: #241d17;
+  --color-brand-ivory: #211a14;
+  --color-brand-beige: #2e251d;
 }
 
 @layer base {
@@ -193,6 +242,12 @@
   /* The skip link focuses <main>; the whole region needs no ring. */
   #main-content:focus {
     outline: none;
+  }
+
+  /* Legion profile: kit components always render in Nunito Sans. */
+  [class*="legion"],
+  [class^="legion"] {
+    font-family: var(--font-legion), "Nunito Sans", sans-serif !important;
   }
 }
 

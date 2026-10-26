@@ -84,6 +84,37 @@ Product grid: `grid-cols-2 tablet:grid-cols-3 desktop:grid-cols-4 wide:grid-cols
 - Layout/motion for overlays lives in `globals.css` (`.cns-dialog`,
   `.cns-ai-panel`). Everything else uses utilities.
 
+## Dark mode (Legion pattern — styling default)
+
+Class-based (`html.dark`), paired CSS variables — no separate theme. The inline
+script in `src/app/layout.tsx` sets `.dark` from `prefers-color-scheme`; there is
+no manual toggle. Rules:
+
+- Every core token (background, surface, text-*, border, primary/on-primary,
+  secondary, success/warning/error, ai-*, overlay) and every brand **surface**
+  (cream, ivory, beige, blush-soft, peach) has a paired value under `html.dark`
+  in `globals.css`. Values change per mode, token names never do.
+- Brand **accents** (blush, gold, rose-gold) stay constant across modes
+  (decorative / large text only).
+- Components never need `dark:` variants for colors — the variable pairing
+  flips them. `dark:` exists for layout-only exceptions.
+- Legion kit components render in Nunito Sans (`[class*="legion"]` rule) and
+  their `!bg-*`/`!text-*` classes resolve through the CNS token chain via the
+  compatibility aliases `foreground` → `text-primary`, `accent` →
+  `brand-cocoa`.
+
+Dark pairing measured for WCAG 2.2 AA (body ≥ 4.5:1, large/UI ≥ 3:1):
+text-primary 13:1, text-secondary 9:1, text-muted 5:1 (decorative),
+success 6:1, warning 8:1, error 7:1, ai-accent 7:1 — all on `surface`/`background`.
+
+## Hex-color discipline (Legion pattern)
+
+Hex values live **only** in `globals.css` tokens (this file documents them).
+Components and features use semantic utilities (`bg-surface`, `text-foreground`,
+`border-border`, …) — never raw hex, never Tailwind's default palette (reset in
+`@theme`). Known exception: `src/app/opengraph-image.tsx` draws the OG image
+server-side and carries its own literals; it consumes no UI classes.
+
 ## Motion
 
 Durations `--duration-fast` 150ms, `--duration-base` 200ms, `--duration-slow`
