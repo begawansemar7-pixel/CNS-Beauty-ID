@@ -23,6 +23,7 @@ import { JournalSection } from "@/features/home/journal-section";
 import { TestimonialsSection } from "@/features/home/testimonials-section";
 
 import { OverlayDemos } from "./demos";
+import { LegionDemos } from "./legion-demos";
 import {
   SAMPLE_ARTICLES,
   SAMPLE_CONCERNS,
@@ -172,6 +173,15 @@ export default async function DesignSystemPage() {
               <p className="font-display text-h4">Card AI</p>
             </Card>
           </div>
+        </Section>
+
+        <Section id="ds-legion" title="Legion UI Kit">
+          <p className="mb-6 max-w-2xl text-body-s text-text-secondary">
+            Komponen dari <code>@legion-ui-kit/react-core</code> (profil Legion). Mapping card lama → komponen
+            Legion terdokumentasi di <code>docs/LEGION_COMPONENT_MAPPING.md</code>; primitif audited tetap dipakai
+            di seluruh aplikasi sampai setiap mapping lolos regresi.
+          </p>
+          <LegionDemos />
         </Section>
 
         <Section id="ds-overlays" title="Overlay & Beauty AI">
