@@ -4,6 +4,7 @@ import { RotateCcw } from "lucide-react";
 import { useState, useTransition } from "react";
 
 import { Button } from "@/components/ui/button";
+import { notify } from "@/lib/utils/notify";
 
 import { reorderAction } from "./actions";
 
@@ -22,7 +23,11 @@ export function ReorderButton({ orderId }: { orderId: string }) {
         onClick={() =>
           startTransition(async () => {
             const result = await reorderAction(orderId);
-            if (!result.ok) setError(result.message);
+            if (!result.ok) {
+              setError(result.message);
+              return;
+            }
+            notify("Produk ditambahkan ke keranjang.");
           })
         }
       >

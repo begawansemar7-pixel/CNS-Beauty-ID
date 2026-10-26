@@ -7,6 +7,7 @@ import { useState, useTransition } from "react";
 
 import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/constants/routes";
+import { notify } from "@/lib/utils/notify";
 
 import { toggleWishlistAction } from "./actions";
 
@@ -47,7 +48,9 @@ export function WishlistButton({ productId, productName }: { productId: string; 
           ? [...(current?.productIds ?? []), productId]
           : (current?.productIds ?? []).filter((id) => id !== productId),
       }));
-      setMessage(result.saved ? "Disimpan ke wishlist." : "Dihapus dari wishlist.");
+      const savedMessage = result.saved ? "Disimpan ke wishlist." : "Dihapus dari wishlist.";
+      setMessage(savedMessage);
+      notify(savedMessage);
     });
 
   return (

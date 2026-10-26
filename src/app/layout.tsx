@@ -5,6 +5,7 @@ import { clientEnv } from "@/lib/env/client";
 
 import "./globals.css";
 import { SHARE_DEFAULTS } from "@/lib/seo/share";
+import { ToasterHost } from "@/components/providers/toaster";
 import { SkipLink } from "@/components/layout/skip-link";
 
 const cormorant = Cormorant_Garamond({
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="flex min-h-dvh flex-col">
+        <ToasterHost />
         <SkipLink />
         {children}
       </body>
