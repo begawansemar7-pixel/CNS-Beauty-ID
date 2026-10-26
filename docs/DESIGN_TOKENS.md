@@ -104,8 +104,12 @@ no manual toggle. Rules:
   `brand-cocoa`.
 
 Dark pairing measured for WCAG 2.2 AA (body ≥ 4.5:1, large/UI ≥ 3:1):
-text-primary 13:1, text-secondary 9:1, text-muted 5:1 (decorative),
-success 6:1, warning 8:1, error 7:1, ai-accent 7:1 — all on `surface`/`background`.
+text-primary 15.8:1 / 14.7:1 on background/surface, text-secondary 10.6:1 /
+9.8:1, text-muted 6.1:1 / 5.7:1, success 7.2:1, warning 7.7:1, error 6.9:1,
+on-primary 14.2:1 on primary, ai-accent 7.8:1 on ai-surface, on-primary 8.7:1 /
+11.0:1 on brand-cocoa/cocoa-dark. `border` is a hairline separator
+(decorative — same convention as the light-mode border) and never carries
+state alone.
 
 ## Hex-color discipline (Legion pattern)
 

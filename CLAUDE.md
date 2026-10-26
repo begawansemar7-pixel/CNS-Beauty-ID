@@ -133,6 +133,25 @@ Premium beauty:
 
 Do not use arbitrary colors, typography, spacing or shadows.
 
+### Legion Design Pattern
+
+This project follows the Legion design pattern (Legion Kit rules) on top of the
+CNS tokens:
+
+- Icons: `@tabler/icons-react` only (decorative icons need `aria-hidden`).
+- Charts: recharts only (`LineChart`/`BarChart` + `ResponsiveContainer`),
+  chart colors from theme tokens (`var(--color-*)`), never hand-drawn CSS/SVG.
+- Toasts: sonner — `toast()` plus exactly one `<Toaster />` in the root layout.
+- Dark mode: class-based `html.dark` with paired CSS variables (`globals.css`).
+  Values change per mode, token names never do.
+- Hex colors live only in `globals.css` tokens; components use semantic
+  utilities. No Tailwind default palette (reset in `@theme`), no dynamic
+  template-string classes.
+- Kit: `@legion-ui-kit/react-core` for the documented component profile
+  (integration rules and mapping: `docs/LEGION_COMPONENT_MAPPING.md`). Kit
+  elements render in Nunito Sans; do not remove the `[class*="legion"]` rule or
+  the unlayered type-system restore in `globals.css`.
+
 ## 7. Motion
 
 All meaningful UI animation must follow:

@@ -38,6 +38,11 @@ The visual system translates CNS Beauty's positioning into a warm, sophisticated
 }
 ```
 
+Mapping ke implementasi: token live sebagai `--color-*` di
+`src/app/globals.css` (`--cns-cocoa` → `--color-brand-cocoa`, `--surface` →
+`--color-surface`, `--text-primary` → `--color-text-primary`, dst.). Hex hanya
+di token; komponen memakai utility semantik.
+
 Color values are implementation tokens inspired by the approved illustration direction; final brand values should be reconciled with the official CNS brand identity.
 
 ## 3. Typography
@@ -174,6 +179,9 @@ Use:
 - rounded geometry;
 - restrained blush/cocoa/gold.
 
+Icons come from `@tabler/icons-react` (Legion profile). Decorative icons must
+use `aria-hidden`; interactive icons need accessible labels.
+
 ## 12. Responsive
 
 <640 mobile
@@ -215,3 +223,13 @@ Mobile:
 floating button → bottom sheet/full screen.
 
 AI should visually feel part of CNS Beauty, not like an embedded third-party chatbot.
+
+## 16. Dark Mode (Legion pattern)
+
+Dark mode is a styling default: class-based (`html.dark`), activated from
+`prefers-color-scheme` by the inline script in the root layout — no manual
+toggle. Every core token and brand surface has a paired dark value in
+`globals.css` (see `docs/DESIGN_TOKENS.md` for the full pairing and measured
+WCAG 2.2 AA ratios); brand accents (blush, gold, rose-gold) stay constant
+across modes. Components never hardcode colors, so no `dark:` variants are
+needed for them.
