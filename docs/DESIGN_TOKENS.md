@@ -25,19 +25,19 @@ Core semantic tokens (from `CLAUDE.md`) carry the UI. The `brand-*` accents
 
 ### Contrast (WCAG 2.2 AA: 4.5:1 body text, 3:1 large text and UI)
 
-Measured ratios:
+Measured ratios (light mode). **Bold** = below the threshold:
 
 | Foreground | on white | on surface | on cream | on blush-soft | on ai-surface |
 |---|---|---|---|---|---|
 | primary | 16.5 | 15.7 | 15.8 | 12.7 | 14.5 |
-| text-secondary | 5.6 | 5.3 | 5.3 | **4.3** | 4.9 |
+| text-secondary | 5.5 | 5.3 | 5.3 | **4.3** | 4.9 |
 | text-muted | **2.9** | **2.7** | **2.8** | **2.2** | **2.5** |
 | success | 6.1 | 5.8 | 5.9 | 4.7 | 5.4 |
 | warning | **3.9** | **3.7** | **3.7** | **3.0** | **3.4** |
-| error | 5.1 | 4.9 | 4.9 | **3.9** | 4.5 |
+| error | 5.1 | 4.8 | 4.9 | **3.9** | **4.49** |
 | ai-accent | **4.1** | **3.9** | **4.0** | **3.2** | **3.6** |
-| brand-cocoa | 9.9 | 9.4 | 9.5 | 7.6 | 8.7 |
-| brand-cocoa-dark | 14.2 | 13.5 | 13.6 | 10.9 | 12.5 |
+| brand-cocoa | 9.9 | 9.4 | 9.4 | 7.6 | 8.7 |
+| brand-cocoa-dark | 14.2 | 13.5 | 13.6 | 10.9 | 12.4 |
 | brand-blush | **2.6** | | | | |
 | brand-rose-gold | **3.2** | | | | |
 | brand-gold | **2.6** | | | | |
@@ -45,7 +45,9 @@ Measured ratios:
 Rules that follow:
 
 - **Body text:** use only primary, text-secondary, success, error, brand-cocoa
-  or brand-cocoa-dark. On `blush-soft`, use primary or cocoa only.
+  or brand-cocoa-dark. On `blush-soft`, use primary or cocoa only. Error copy
+  on `ai-surface` is 4.49:1 — a hair under body AA: keep it to an icon + short
+  label and put the words in `text-primary`.
 - **warning / ai-accent:** icons, borders, and text of 24px+ (or 18.66px+ bold).
   For warning copy, put the text in `text-primary` next to a warning icon.
 - **text-muted, brand-blush, brand-gold:** never for text that must be read.
@@ -98,16 +100,37 @@ no manual toggle. Rules:
   (decorative / large text only).
 - Components never need `dark:` variants for colors — the variable pairing
   flips them. `dark:` exists for layout-only exceptions.
-- Legion kit components render in Nunito Sans (`[class*="legion"]` rule) and
-  their `!bg-*`/`!text-*` classes resolve through the CNS token chain via the
-  compatibility aliases `foreground` → `text-primary`, `accent` →
-  `brand-cocoa`.
+- Legion kit components render in Nunito Sans (`[class*="legion"]` rule). Their
+  palette variables (`--button-*`, `--badge-*`, `--card-*` for the surfaces used
+  in the app) are rebound to the CNS token chain in `globals.css`, so kit
+  components follow the theme — dark pairing included — with AA-verified
+  label/surface pairs; utility classes like `!text-foreground` resolve through
+  the compatibility aliases `foreground` → `text-primary`, `accent` →
+  `brand-cocoa`. Kit variables that no app surface uses keep the kit defaults.
 
-Dark pairing measured for WCAG 2.2 AA (body ≥ 4.5:1, large/UI ≥ 3:1):
-text-primary 15.8:1 / 14.7:1 on background/surface, text-secondary 10.6:1 /
-9.8:1, text-muted 6.1:1 / 5.7:1, success 7.2:1, warning 7.7:1, error 6.9:1,
-on-primary 14.2:1 on primary, ai-accent 7.8:1 on ai-surface, on-primary 8.7:1 /
-11.0:1 on brand-cocoa/cocoa-dark. `border` is a hairline separator
+Measured ratios (dark mode):
+
+| Foreground | on background | on surface | on cream | on blush-soft | on ai-surface |
+|---|---|---|---|---|---|
+| text-primary | 15.8 | 14.7 | 14.3 | 11.7 | 13.6 |
+| primary | 15.5 | 14.4 | 14.1 | 11.4 | 13.4 |
+| text-secondary | 10.6 | 9.8 | 9.6 | 7.8 | 9.1 |
+| text-muted | 6.1 | 5.7 | 5.6 | 4.5 | 5.3 |
+| success | 7.7 | 7.2 | 7.0 | 5.7 | 6.7 |
+| warning | 8.2 | 7.7 | 7.5 | 6.1 | 7.1 |
+| error | 7.4 | 6.9 | 6.7 | 5.5 | 6.4 |
+| ai-accent | 9.1 | 8.4 | 8.3 | 6.7 | 7.8 |
+| brand-cocoa | 9.5 | 8.8 | 8.6 | 7.0 | 8.2 |
+| brand-cocoa-dark | 12.0 | 11.2 | 10.9 | 8.9 | 10.4 |
+| brand-blush | 7.2 | 6.7 | 6.5 | 5.3 | 6.2 |
+| brand-rose-gold | 5.7 | 5.3 | 5.1 | **4.2** | 4.9 |
+| brand-gold | 7.1 | 6.6 | 6.5 | 5.3 | 6.1 |
+
+Buttons: `on-primary` 14.2:1 on `primary`, 8.7:1 on `brand-cocoa`, 11.0:1 on
+`brand-cocoa-dark`. In dark mode every body-capable color clears 4.5:1 on every
+surface — `text-muted` included (its tightest pair is 4.5:1 on `blush-soft`) —
+so the light-mode text restrictions lift; `brand-rose-gold` on `blush-soft`
+stays large text / decoration only. `border` is a hairline separator
 (decorative — same convention as the light-mode border) and never carries
 state alone.
 
@@ -117,7 +140,10 @@ Hex values live **only** in `globals.css` tokens (this file documents them).
 Components and features use semantic utilities (`bg-surface`, `text-foreground`,
 `border-border`, …) — never raw hex, never Tailwind's default palette (reset in
 `@theme`). Known exception: `src/app/opengraph-image.tsx` draws the OG image
-server-side and carries its own literals; it consumes no UI classes.
+server-side and carries its own literals; it consumes no UI classes. The rule is
+locked in by `tests/unit/style-discipline.test.ts`: the build fails if a raw hex
+or a template-string `className` shows up under `src/components` or
+`src/features`.
 
 ## Motion
 

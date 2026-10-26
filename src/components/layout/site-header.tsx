@@ -16,7 +16,9 @@ const ICON = { className: "size-5", strokeWidth: 1.5, "aria-hidden": true } as c
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur-sm">
-      <Container className="flex h-16 items-center gap-4 desktop:h-20">
+      {/* gap-2 on small screens: at 320px the row must fit the 44px targets
+          beside the wordmark without horizontal scroll (WCAG 1.4.10). */}
+      <Container className="flex h-16 items-center gap-2 desktop:h-20 desktop:gap-4">
         <div className="flex flex-1 items-center desktop:hidden">
           <MobileNav />
         </div>

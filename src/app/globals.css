@@ -260,6 +260,70 @@ html.dark {
   font-family: inherit;
 }
 
+/*
+ * Legion kit palette mapping: `legion.css` ships its own hex defaults for the
+ * `--button-*` / `--badge-*` / `--card-*` variables. The surfaces used in the
+ * app (Button, Badge, Card) are rebound to the CNS token chain here, so kit
+ * components follow the theme — including the `html.dark` pairing — and every
+ * label/surface pair stays inside the WCAG 2.2 AA ratios recorded in
+ * docs/DESIGN_TOKENS.md. Defined after the kit import, so these win the
+ * cascade; var() references resolve per mode at use time.
+ */
+:root {
+  /* Button — primary/solid (filled CTA) */
+  --button-background-color-primary-solid-default: var(--color-primary);
+  --button-background-color-primary-solid-hover: var(--color-brand-cocoa-dark);
+  --button-background-color-primary-solid-press: var(--color-brand-cocoa-dark);
+  --button-color-primary-solid-default-label: var(--color-on-primary);
+  --button-color-primary-solid-hover-label: var(--color-on-primary);
+  --button-color-primary-solid-press-label: var(--color-on-primary);
+  --button-color-primary-solid-focus-border: var(--color-on-primary);
+
+  /* Button — secondary/outline */
+  --button-background-color-secondary-outline-default: var(--color-transparent);
+  --button-background-color-secondary-outline-hover: var(--color-secondary);
+  --button-background-color-secondary-outline-press: var(--color-secondary);
+  --button-color-secondary-outline-default-border: var(--color-primary);
+  --button-color-secondary-outline-hover-border: var(--color-primary);
+  --button-color-secondary-outline-press-border: var(--color-primary);
+  --button-color-secondary-outline-default-label: var(--color-text-primary);
+  --button-color-secondary-outline-hover-label: var(--color-brand-cocoa-dark);
+  --button-color-secondary-outline-press-label: var(--color-brand-cocoa-dark);
+  --button-color-secondary-outline-focus-border: var(--color-brand-cocoa-dark);
+
+  /* Button — error/soft */
+  --button-background-color-error-soft-default: var(--color-secondary);
+  --button-background-color-error-soft-hover: var(--color-brand-cream);
+  --button-background-color-error-soft-press: var(--color-brand-cream);
+  --button-color-error-soft-default-label: var(--color-error);
+  --button-color-error-soft-hover-label: var(--color-error);
+  --button-color-error-soft-press-label: var(--color-error);
+  --button-color-error-soft-focus-border: var(--color-error);
+
+  /* Badge — success / error (the tones used in the app). The kit's `danger`
+   * class reads `--badge-*danger*` variables that no kit stylesheet defines;
+   * they are defined here alongside the `error` set. */
+  --badge-background-color-success: var(--color-success);
+  --badge-color-success-label: var(--color-on-primary);
+  --badge-color-success-border: var(--color-success);
+  --badge-background-color-danger: var(--color-error);
+  --badge-color-danger-label: var(--color-on-primary);
+  --badge-color-danger-border: var(--color-error);
+  --badge-background-color-error: var(--color-error);
+  --badge-color-error-label: var(--color-on-primary);
+  --badge-color-error-border: var(--color-error);
+
+  /* Card */
+  --card-background-color-container: var(--color-surface);
+  --card-background-color-soft-default: var(--color-secondary);
+  --card-background-color-divider-header-footer: var(--color-border);
+
+  /* Text-field — label & hint render on the page surface, so they follow the
+   * CNS text tokens (kit defaults stay for the field's own box). */
+  --text-field-color-label: var(--color-text-primary);
+  --text-field-color-hint: var(--color-text-secondary);
+}
+
 body {
   font-family: var(--font-body);
 }

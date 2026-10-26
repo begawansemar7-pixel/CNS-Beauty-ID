@@ -145,7 +145,7 @@ function SearchForm({ basePath, query }: { basePath: string; query: CatalogQuery
         defaultValue={query.q}
         maxLength={100}
         placeholder="Cari produk, kandungan, atau kebutuhan kulit"
-        className="h-10 flex-1 bg-transparent text-body-s text-text-primary placeholder:text-text-secondary focus-visible:outline-none"
+        className="h-10 min-w-0 flex-1 bg-transparent text-body-s text-text-primary placeholder:text-text-secondary focus-visible:outline-none"
       />
       {query.kebutuhan && <input type="hidden" name="kebutuhan" value={query.kebutuhan} />}
       {query.kulit && <input type="hidden" name="kulit" value={query.kulit} />}

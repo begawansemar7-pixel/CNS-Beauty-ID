@@ -43,7 +43,9 @@ export function LegionDemos() {
               Batal
             </Button>
             <Badge label="BPOM" color="success" className="rounded-full" />
-            <Badge label="Baru" color="error" className="rounded-full" />
+            {/* Kit mismatch: styles map only knows `danger`, the prop type lists
+                `error` (renders unstyled). Cast keeps TS clean — see docs §11. */}
+            <Badge label="Baru" color={"danger" as unknown as "error"} className="rounded-full" />
           </div>
           <p className="text-body-s text-text-secondary">Loading state (<code>isLoading</code> + <code>loadingText</code>):</p>
           <div>

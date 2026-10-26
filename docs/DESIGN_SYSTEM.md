@@ -8,40 +8,44 @@ The visual system translates CNS Beauty's positioning into a warm, sophisticated
 
 ## 2. Color Tokens
 
+The implementation tokens below mirror `src/app/globals.css` (light values —
+that file is the source of truth for every hex; dark values are paired under
+`html.dark` there):
+
 ```css
-:root {
-  --cns-cocoa: #6B3328;
-  --cns-cocoa-dark: #43221B;
-  --cns-blush: #D98F88;
-  --cns-blush-soft: #F7DCD7;
-  --cns-peach: #F3C7B8;
-  --cns-cream: #FFF9F5;
-  --cns-ivory: #FAF7F3;
-  --cns-beige: #EDE1D7;
-  --cns-gold: #C99A3D;
-  --cns-rose-gold: #C77B72;
+/* src/app/globals.css @theme (light values) */
+--color-primary: #1f1f1f;
+--color-on-primary: #ffffff;
+--color-secondary: #f5f1ec;
+--color-background: #ffffff;
+--color-surface: #faf9f7;
+--color-text-primary: #1f1f1f;
+--color-text-secondary: #6b6863;
+--color-text-muted: #9b9893;
+--color-border: #e7e2dc;
+--color-success: #3f6b50;
+--color-warning: #a97832;
+--color-error: #b84a4a;
+--color-ai-surface: #f3f0ea;
+--color-ai-accent: #8c7a64;
 
-  --text-primary: #2B2522;
-  --text-secondary: #6B625D;
-  --text-muted: #9A918B;
-
-  --border: #E7DCD5;
-  --surface: #FFFFFF;
-  --surface-soft: #FBF6F2;
-
-  --success: #3F6B50;
-  --warning: #A97832;
-  --error: #B84A4A;
-
-  --ai-surface: #F3EEE8;
-  --ai-accent: #8C6F5D;
-}
+--color-brand-cocoa: #6b3328;
+--color-brand-cocoa-dark: #43221b;
+--color-brand-blush: #d98f88;
+--color-brand-blush-soft: #f7dcd7;
+--color-brand-peach: #f3c7b8;
+--color-brand-cream: #fff9f5;
+--color-brand-ivory: #faf7f3;
+--color-brand-beige: #ede1d7;
+--color-brand-gold: #c99a3d;
+--color-brand-rose-gold: #c77b72;
 ```
 
-Mapping ke implementasi: token live sebagai `--color-*` di
-`src/app/globals.css` (`--cns-cocoa` → `--color-brand-cocoa`, `--surface` →
-`--color-surface`, `--text-primary` → `--color-text-primary`, dst.). Hex hanya
-di token; komponen memakai utility semantik.
+Mapping dari nama spec lama: `--cns-*` → `--color-brand-*`, `--text-*` →
+`--color-text-*`, `--surface` → `--color-background`, `--surface-soft` →
+`--color-surface`, `--ai-*` → `--color-ai-*`, `--border` → `--color-border`.
+Hex hanya di token; komponen memakai utility semantik. Dark pairing & rasio
+kontras terukur: `docs/DESIGN_TOKENS.md`.
 
 Color values are implementation tokens inspired by the approved illustration direction; final brand values should be reconciled with the official CNS brand identity.
 
@@ -52,6 +56,8 @@ Display:
 
 Body:
 `Inter`
+
+Legion kit components render in `Nunito Sans` (see `docs/DESIGN_TOKENS.md`).
 
 ```css
 --font-display: "Cormorant Garamond", serif;
@@ -111,19 +117,17 @@ than heavy shadows.
 
 ## 7. Buttons
 
-Primary:
-- cocoa/blush filled
-- white text
-- medium radius
+Variants (`src/components/ui/button.tsx`):
 
-Secondary:
-- outlined
-- cocoa text
+- primary: filled, `bg-primary text-on-primary` (ink / white);
+- brand: filled, `bg-brand-cocoa text-on-primary` (cocoa / white);
+- secondary: outlined (`border-primary`), `text-text-primary`;
+- ghost: text-only;
+- ai: warm neutral surface (`bg-ai-surface`) with an `ai-accent` border;
+- inverse / inverse-outline: for cocoa-dark surfaces.
 
-AI:
-- subtle warm neutral surface
-- sparkle icon
-- distinct but brand-consistent
+Sizes sm / md / lg; md and lg meet the 44px touch target. Buttons wrap their
+labels at narrow widths instead of forcing sideways scroll.
 
 ## 8. Product Cards
 
@@ -194,7 +198,8 @@ Product grid:
 
 ## 13. Accessibility
 
-Target WCAG 2.2 AA.
+Target WCAG 2.2 AA. Measured contrast ratios for both modes:
+`docs/DESIGN_TOKENS.md`; render + axe checks per mode: `tests/e2e/theme-render.spec.ts`.
 
 Do not use color alone for:
 - status
