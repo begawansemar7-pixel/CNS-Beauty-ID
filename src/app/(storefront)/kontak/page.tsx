@@ -1,4 +1,4 @@
-import { AtSign, Mail, MapPin, MessageCircle } from "lucide-react";
+import { IconAt as AtSign, IconMail as Mail, IconMapPin as MapPin, IconMessageCircle as MessageCircle } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 

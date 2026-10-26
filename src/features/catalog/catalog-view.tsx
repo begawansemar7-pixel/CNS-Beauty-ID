@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
+import { IconChevronLeft as ChevronLeft, IconChevronRight as ChevronRight, IconSearch as Search, IconX as X } from "@tabler/icons-react";
 import Form from "next/form";
 import Link from "next/link";
 

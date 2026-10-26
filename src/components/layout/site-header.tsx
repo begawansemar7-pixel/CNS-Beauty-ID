@@ -1,4 +1,4 @@
-import { Heart, Search, User } from "lucide-react";
+import { IconHeart as Heart, IconSearch as Search, IconUser as User } from "@tabler/icons-react";
 
 import { AIHeaderButton } from "@/components/ai/ai-header-button";
 import { IconLink } from "@/components/ui/icon-button";

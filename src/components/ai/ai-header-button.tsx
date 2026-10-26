@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
+import { IconSparkles as Sparkles } from "@tabler/icons-react";
 
 import { Button } from "@/components/ui/button";
 import { useUIStore } from "@/stores/ui-store";

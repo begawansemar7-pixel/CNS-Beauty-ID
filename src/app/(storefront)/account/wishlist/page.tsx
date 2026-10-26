@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+import { IconHeart as Heart } from "@tabler/icons-react";
 
 import { ProductGrid } from "@/components/product/product-grid";
 import { ButtonLink } from "@/components/ui/button";

@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { IconArrowRight as ArrowRight } from "@tabler/icons-react";
 
 import { AskAIButton } from "@/components/ai/ask-ai-button";
 import { ArchMedia } from "@/components/layout/arch-media";

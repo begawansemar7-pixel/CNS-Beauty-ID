@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MailCheck } from "lucide-react";
+import { IconMailCheck as MailCheck } from "@tabler/icons-react";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import type { z } from "zod";

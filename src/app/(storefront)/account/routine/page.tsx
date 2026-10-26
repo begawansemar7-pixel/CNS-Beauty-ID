@@ -1,4 +1,4 @@
-import { Moon, Sparkles, Sun } from "lucide-react";
+import { IconMoon as Moon, IconSparkles as Sparkles, IconSun as Sun } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 

@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { IconChevronRight as ChevronRight } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Upload } from "lucide-react";
+import { IconUpload as Upload } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import { useState, useTransition, type FormEvent } from "react";
 

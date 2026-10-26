@@ -1,6 +1,6 @@
 "use client";
 
-import { SlidersHorizontal } from "lucide-react";
+import { IconAdjustmentsHorizontal as SlidersHorizontal } from "@tabler/icons-react";
 import { useState, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";

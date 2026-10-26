@@ -1,6 +1,6 @@
 "use client";
 
-import { Minus, Plus, Trash2 } from "lucide-react";
+import { IconMinus as Minus, IconPlus as Plus, IconTrash as Trash2 } from "@tabler/icons-react";
 import { useState, useTransition } from "react";
 
 import { IconButton } from "@/components/ui/icon-button";

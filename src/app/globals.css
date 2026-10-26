@@ -252,6 +252,33 @@ html.dark {
 }
 
 /*
+ * Legion core-styles ships an unlayered `* { font-family: var(--typography-font-family-body) }`
+ * (Nunito Sans) reset. Unlayered rules outrank Tailwind's layered base, so the
+ * CNS type system is restored here, also unlayered (kit CSS is imported first).
+ */
+* {
+  font-family: inherit;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/*
  * Overlays (native <dialog>). Enter/exit use CSS transitions with
  * @starting-style so they animate in the top layer. See
  * docs/CNS_BEAUTY_MOTION_SYSTEM.md.

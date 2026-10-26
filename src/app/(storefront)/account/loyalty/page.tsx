@@ -1,4 +1,4 @@
-import { Gift, Star } from "lucide-react";
+import { IconGift as Gift, IconStar as Star } from "@tabler/icons-react";
 
 import { TrackEvent } from "@/components/analytics/track-event";
 import { ButtonLink } from "@/components/ui/button";

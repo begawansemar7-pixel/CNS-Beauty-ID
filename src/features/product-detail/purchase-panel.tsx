@@ -1,4 +1,4 @@
-import { CircleAlert, CircleCheck, MessageCircle } from "lucide-react";
+import { IconAlertCircle as CircleAlert, IconCircleCheck as CircleCheck, IconMessageCircle as MessageCircle } from "@tabler/icons-react";
 
 import { AskAIButton } from "@/components/ai/ask-ai-button";
 import { Price } from "@/components/product/price";

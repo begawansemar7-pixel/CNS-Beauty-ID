@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+import { IconQuote as Quote } from "@tabler/icons-react";
 
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button";

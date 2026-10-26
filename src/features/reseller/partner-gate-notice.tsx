@@ -1,4 +1,4 @@
-import { Handshake } from "lucide-react";
+import { IconHeartHandshake as Handshake } from "@tabler/icons-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/ui/states";

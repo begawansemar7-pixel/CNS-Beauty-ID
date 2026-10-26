@@ -1,4 +1,4 @@
-import { Users } from "lucide-react";
+import { IconUsers as Users } from "@tabler/icons-react";
 import Form from "next/form";
 
 import { Button, ButtonLink } from "@/components/ui/button";

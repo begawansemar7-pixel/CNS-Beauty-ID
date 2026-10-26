@@ -1,4 +1,4 @@
-import { Heart, ShoppingBag } from "lucide-react";
+import { IconHeart as Heart, IconShoppingBag as ShoppingBag } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";

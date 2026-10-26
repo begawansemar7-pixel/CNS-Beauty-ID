@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
+import { IconSparkles as Sparkles } from "@tabler/icons-react";
 import type { ReactNode } from "react";
 
 import { Button, type ButtonSize, type ButtonVariant } from "@/components/ui/button";

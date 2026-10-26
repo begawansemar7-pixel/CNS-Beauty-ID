@@ -1,6 +1,6 @@
 "use client";
 
-import { X } from "lucide-react";
+import { IconX as X } from "@tabler/icons-react";
 import { useActionState, useTransition } from "react";
 
 import { Button } from "@/components/ui/button";

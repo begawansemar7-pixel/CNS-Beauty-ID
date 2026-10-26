@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Heart } from "lucide-react";
+import { IconHeart as Heart } from "@tabler/icons-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 

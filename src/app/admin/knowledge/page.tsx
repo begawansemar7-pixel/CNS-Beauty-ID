@@ -1,4 +1,4 @@
-import { BookOpen } from "lucide-react";
+import { IconBook2 as BookOpen } from "@tabler/icons-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";

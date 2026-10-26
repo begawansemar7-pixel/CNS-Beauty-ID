@@ -1,4 +1,4 @@
-import { Package } from "lucide-react";
+import { IconPackage as Package } from "@tabler/icons-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/ui/states";

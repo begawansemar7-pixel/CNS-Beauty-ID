@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart, Menu, Search, Sparkles, User } from "lucide-react";
+import { IconHeart as Heart, IconMenu as Menu, IconSearch as Search, IconSparkles as Sparkles, IconUser as User } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";

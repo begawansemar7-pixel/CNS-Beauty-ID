@@ -1,4 +1,4 @@
-import { LoaderCircle } from "lucide-react";
+import { IconLoader2 as LoaderCircle } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 

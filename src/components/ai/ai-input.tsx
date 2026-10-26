@@ -1,6 +1,6 @@
 "use client";
 
-import { SendHorizontal } from "lucide-react";
+import { IconSend2 as SendHorizontal } from "@tabler/icons-react";
 import { useId, useState } from "react";
 
 import { IconButton } from "@/components/ui/icon-button";

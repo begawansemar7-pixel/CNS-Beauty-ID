@@ -1,4 +1,4 @@
-import { Sparkles } from "lucide-react";
+import { IconSparkles as Sparkles } from "@tabler/icons-react";
 
 import { AskAIButton } from "@/components/ai/ask-ai-button";
 import { ButtonLink } from "@/components/ui/button";

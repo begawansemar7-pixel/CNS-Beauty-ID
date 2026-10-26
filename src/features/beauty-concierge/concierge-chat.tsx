@@ -1,6 +1,6 @@
 "use client";
 
-import { RotateCcw, Sparkles } from "lucide-react";
+import { IconRefresh as RotateCcw, IconSparkles as Sparkles } from "@tabler/icons-react";
 
 import { ConciergeConversation } from "@/components/ai/concierge-conversation";
 import { IconButton } from "@/components/ui/icon-button";

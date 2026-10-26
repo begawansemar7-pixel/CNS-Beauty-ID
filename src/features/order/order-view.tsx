@@ -1,4 +1,4 @@
-import { CircleCheck, Clock, MessageCircle } from "lucide-react";
+import { IconCircleCheck as CircleCheck, IconClock as Clock, IconMessageCircle as MessageCircle } from "@tabler/icons-react";
 import type { ReactNode } from "react";
 
 import { Badge } from "@/components/ui/badge";

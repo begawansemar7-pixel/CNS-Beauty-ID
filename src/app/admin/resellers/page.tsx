@@ -1,4 +1,4 @@
-import { Handshake } from "lucide-react";
+import { IconHeartHandshake as Handshake } from "@tabler/icons-react";
 
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";

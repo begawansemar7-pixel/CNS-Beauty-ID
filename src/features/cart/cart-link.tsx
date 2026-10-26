@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingBag } from "lucide-react";
+import { IconShoppingBag as ShoppingBag } from "@tabler/icons-react";
 
 import { IconLink } from "@/components/ui/icon-button";
 import { ROUTES } from "@/constants/routes";

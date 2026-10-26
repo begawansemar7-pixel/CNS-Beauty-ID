@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
+import { IconSparkles as Sparkles } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
 
 import { ROUTES } from "@/constants/routes";

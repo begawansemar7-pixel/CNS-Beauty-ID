@@ -1,7 +1,7 @@
 "use client";
 
 import { useQueryClient } from "@tanstack/react-query";
-import { X } from "lucide-react";
+import { IconX as X } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 

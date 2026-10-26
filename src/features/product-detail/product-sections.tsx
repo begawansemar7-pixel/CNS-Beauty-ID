@@ -1,4 +1,4 @@
-import { BadgeCheck, ChevronDown, Star } from "lucide-react";
+import { IconRosetteDiscountCheck as BadgeCheck, IconChevronDown as ChevronDown, IconStar as Star } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 

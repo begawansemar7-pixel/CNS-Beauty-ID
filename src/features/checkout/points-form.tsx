@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { IconStar as Star } from "@tabler/icons-react";
 import Form from "next/form";
 import Link from "next/link";
 

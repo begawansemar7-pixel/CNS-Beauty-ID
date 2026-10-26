@@ -1,6 +1,6 @@
 "use client";
 
-import { RotateCcw, Sparkles, X } from "lucide-react";
+import { IconRefresh as RotateCcw, IconSparkles as Sparkles, IconX as X } from "@tabler/icons-react";
 import { useEffect, useId, useRef } from "react";
 
 import { track } from "@/lib/analytics/client";

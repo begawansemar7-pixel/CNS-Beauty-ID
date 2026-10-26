@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle, Square } from "lucide-react";
+import { IconMessageCircle as MessageCircle, IconSquare as Square } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 

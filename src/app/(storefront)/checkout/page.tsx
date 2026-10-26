@@ -1,4 +1,4 @@
-import { ShoppingBag } from "lucide-react";
+import { IconShoppingBag as ShoppingBag } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import type { ReactNode } from "react";

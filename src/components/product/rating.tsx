@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { IconStar as Star } from "@tabler/icons-react";
 
 import { cn } from "@/lib/utils/cn";
 import { formatRating } from "@/lib/utils/format";

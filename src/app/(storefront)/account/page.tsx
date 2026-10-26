@@ -1,4 +1,4 @@
-import { Heart, Package, Sparkles, Star } from "lucide-react";
+import { IconHeart as Heart, IconPackage as Package, IconSparkles as Sparkles, IconStar as Star } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 

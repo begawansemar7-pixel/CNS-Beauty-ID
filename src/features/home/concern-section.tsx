@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { IconArrowRight as ArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 
 import { Container } from "@/components/layout/container";

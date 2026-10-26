@@ -1,4 +1,4 @@
-import { ScrollText } from "lucide-react";
+import { IconFileText as ScrollText } from "@tabler/icons-react";
 
 import { EmptyState } from "@/components/ui/states";
 import { ROUTES } from "@/constants/routes";

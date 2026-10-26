@@ -1,4 +1,4 @@
-import { BadgeCheck } from "lucide-react";
+import { IconRosetteDiscountCheck as BadgeCheck } from "@tabler/icons-react";
 
 import { Card } from "@/components/ui/card";
 import { TESTIMONIALS_COPY } from "@/content/testimonials";

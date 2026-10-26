@@ -1,4 +1,4 @@
-import { MessageCircleHeart } from "lucide-react";
+import { IconMessageCircleHeart as MessageCircleHeart } from "@tabler/icons-react";
 import type { Metadata } from "next";
 
 import { Container } from "@/components/layout/container";

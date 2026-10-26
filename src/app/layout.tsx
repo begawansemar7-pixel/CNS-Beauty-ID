@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter, Nunito_Sans } from "next/font/google";
 
 import { clientEnv } from "@/lib/env/client";
 
+/* Legion kit styles (core-styles → legion), then the CNS theme overrides both. */
+import "@legion-ui-kit/react-core/styles/core-styles.css";
+import "@legion-ui-kit/react-core/styles/legion.css";
 import "./globals.css";
 import { SHARE_DEFAULTS } from "@/lib/seo/share";
 import { ToasterHost } from "@/components/providers/toaster";
@@ -18,6 +21,13 @@ const cormorant = Cormorant_Garamond({
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+/** Legion profile: the kit renders in Nunito Sans, kept via the --font-legion variable. */
+const nunito = Nunito_Sans({
+  variable: "--font-legion",
   subsets: ["latin"],
   display: "swap",
 });
@@ -47,7 +57,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="id" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="id" className={`${cormorant.variable} ${inter.variable} ${nunito.variable}`}>
       {/* Legion dark-mode default: class-based, driven by system preference. */}
       <head>
         <script

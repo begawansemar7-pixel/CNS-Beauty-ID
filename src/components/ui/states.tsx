@@ -1,4 +1,4 @@
-import { CircleAlert, LoaderCircle, PackageOpen } from "lucide-react";
+import { IconAlertCircle as CircleAlert, IconLoader2 as LoaderCircle, IconPackageOff as PackageOpen } from "@tabler/icons-react";
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils/cn";

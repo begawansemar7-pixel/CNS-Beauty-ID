@@ -1,4 +1,4 @@
-import { ClipboardList } from "lucide-react";
+import { IconClipboardList as ClipboardList } from "@tabler/icons-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/ui/states";

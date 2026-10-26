@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { IconChevronDown as ChevronDown } from "@tabler/icons-react";
 import Form from "next/form";
 import { useId } from "react";
 

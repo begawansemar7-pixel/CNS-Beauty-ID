@@ -1,4 +1,4 @@
-import { ClipboardList } from "lucide-react";
+import { IconClipboardList as ClipboardList } from "@tabler/icons-react";
 import Form from "next/form";
 import Link from "next/link";
 

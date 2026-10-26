@@ -1,4 +1,4 @@
-import { CircleAlert, MessageCircle, ShoppingBag } from "lucide-react";
+import { IconAlertCircle as CircleAlert, IconMessageCircle as MessageCircle, IconShoppingBag as ShoppingBag } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";

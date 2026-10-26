@@ -1,10 +1,14 @@
-import { Flower2, Gem, Heart, Sparkles, type LucideIcon } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
+
+import { IconFlower as Flower2, IconDiamond as Gem, IconHeart as Heart, IconSparkles as Sparkles } from "@tabler/icons-react";
 
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "@/components/layout/section-header";
 import { HOME_COPY } from "@/content/home";
 
-const ICONS: Record<(typeof HOME_COPY.values.items)[number]["id"], LucideIcon> = {
+type BrandIcon = ComponentType<SVGProps<SVGSVGElement>>;
+
+const ICONS: Record<(typeof HOME_COPY.values.items)[number]["id"], BrandIcon> = {
   quality: Gem,
   care: Flower2,
   confidence: Sparkles,

@@ -1,6 +1,6 @@
 "use client";
 
-import { CircleAlert, ShoppingBag } from "lucide-react";
+import { IconAlertCircle as CircleAlert, IconShoppingBag as ShoppingBag } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useTransition } from "react";

@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingBag, X } from "lucide-react";
+import { IconShoppingBag as ShoppingBag, IconX as X } from "@tabler/icons-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
