@@ -1,4 +1,4 @@
-import { IconRosetteDiscountCheck as BadgeCheck, IconChevronDown as ChevronDown, IconStar as Star } from "@tabler/icons-react";
+import { IconRosetteDiscountCheck, IconChevronDown, IconStar } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -45,7 +45,7 @@ export function IngredientsSection({ product }: { product: ProductDetail }) {
         <details className="group mt-6">
           <summary className="flex cursor-pointer list-none items-center gap-2 text-body-s font-medium text-text-primary">
             Daftar lengkap kandungan
-            <ChevronDown aria-hidden className="size-4 transition-transform duration-(--duration-base) group-open:rotate-180" />
+            <IconChevronDown aria-hidden className="size-4 transition-transform duration-(--duration-base) group-open:rotate-180" />
           </summary>
           <p className="mt-3 text-body-s text-text-secondary">{product.fullIngredients}</p>
         </details>
@@ -137,7 +137,7 @@ export function FaqSection({ faqs }: { faqs: ProductDetail["copy"]["faqs"] }) {
           <details key={faq.question} className="group py-4">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-body font-medium">
               {faq.question}
-              <ChevronDown aria-hidden className="size-4 shrink-0 transition-transform duration-(--duration-base) group-open:rotate-180" />
+              <IconChevronDown aria-hidden className="size-4 shrink-0 transition-transform duration-(--duration-base) group-open:rotate-180" />
             </summary>
             <p className="mt-3 text-body-s text-text-secondary">{faq.answer}</p>
           </details>
@@ -157,7 +157,7 @@ export function ReviewsSection({ reviews }: { reviews: readonly ProductReview[] 
       ) : reviews.length === 0 ? (
         <EmptyState
           className="items-start px-0 py-0 text-left"
-          icon={<Star className="size-8" strokeWidth={1.25} />}
+          icon={<IconStar className="size-8" strokeWidth={1.25} />}
           title="Belum ada ulasan"
           description="Ulasan dari pelanggan yang telah membeli produk ini akan tampil di sini setelah dimoderasi."
         />
@@ -167,7 +167,7 @@ export function ReviewsSection({ reviews }: { reviews: readonly ProductReview[] 
             <li key={review.id} className="rounded-lg border border-border p-5">
               <p className="flex items-center gap-1" aria-label={`Rating ${review.rating} dari 5`}>
                 {Array.from({ length: 5 }, (_, index) => (
-                  <Star
+                  <IconStar
                     key={index}
                     aria-hidden
                     strokeWidth={1.5}
@@ -183,7 +183,7 @@ export function ReviewsSection({ reviews }: { reviews: readonly ProductReview[] 
                 <time dateTime={review.createdAt}>{formatDate(review.createdAt)}</time>
                 {review.verifiedPurchase && (
                   <span className="flex items-center gap-1 text-success">
-                    <BadgeCheck aria-hidden className="size-3.5" />
+                    <IconRosetteDiscountCheck aria-hidden className="size-3.5" />
                     Pembelian terverifikasi
                   </span>
                 )}

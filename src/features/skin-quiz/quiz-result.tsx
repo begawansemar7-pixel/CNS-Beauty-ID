@@ -1,6 +1,6 @@
 "use client";
 
-import { IconAlertCircle as CircleAlert, IconShoppingBag as ShoppingBag } from "@tabler/icons-react";
+import { IconAlertCircle, IconShoppingBag } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
@@ -116,7 +116,7 @@ export function QuizResultView({ result, answers }: { result: QuizResult; answer
         {result.notes.length > 0 && (
           <div className="rounded-lg bg-ai-surface p-5">
             <p className="flex items-center gap-2 text-body-s font-medium">
-              <CircleAlert aria-hidden className="size-4 text-ai-accent" />
+              <IconAlertCircle aria-hidden className="size-4 text-ai-accent" />
               Perlu diperhatikan
             </p>
             <ul className="mt-2 flex list-disc flex-col gap-1 pl-5 text-body-s text-text-secondary">
@@ -137,7 +137,7 @@ export function QuizResultView({ result, answers }: { result: QuizResult; answer
         </h2>
         {result.products.length === 0 ? (
           <EmptyState
-            icon={<ShoppingBag className="size-8" strokeWidth={1.25} />}
+            icon={<IconShoppingBag className="size-8" strokeWidth={1.25} />}
             title="Belum ada produk yang sesuai"
             description="Katalog kami belum memiliki produk untuk kebutuhan ini. Tanyakan pilihan lain kepada CNS Beauty AI atau tim kami."
             action={<AskAIButton prefill={prompt}>Tanya Beauty AI</AskAIButton>}
@@ -176,7 +176,7 @@ export function QuizResultView({ result, answers }: { result: QuizResult; answer
       <section aria-label="Langkah berikutnya" className="flex flex-col gap-4 border-t border-border pt-8">
         <div className="flex flex-wrap gap-3">
           {result.products.length > 0 && (
-            <Button onClick={addRoutine} loading={pending} disabled={availableIds.length === 0} leadingIcon={<ShoppingBag aria-hidden className="size-4" />}>
+            <Button onClick={addRoutine} loading={pending} disabled={availableIds.length === 0} leadingIcon={<IconShoppingBag aria-hidden className="size-4" />}>
               {availableIds.length === 0 ? "Produk sedang tidak tersedia" : "Tambahkan rutinitas ke keranjang"}
             </Button>
           )}

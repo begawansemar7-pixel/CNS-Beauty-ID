@@ -1,4 +1,4 @@
-import { IconAlertCircle as CircleAlert, IconLoader2 as LoaderCircle, IconPackageOff as PackageOpen } from "@tabler/icons-react";
+import { IconAlertCircle, IconLoader2, IconPackageOff } from "@tabler/icons-react";
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils/cn";
@@ -12,7 +12,7 @@ export function Skeleton({ className }: { className?: string }) {
 export function LoadingState({ label = "Memuat…", className }: { label?: string; className?: string }) {
   return (
     <div role="status" className={cn("flex items-center justify-center gap-3 py-12 text-body-s text-text-secondary", className)}>
-      <LoaderCircle aria-hidden className="size-5 animate-spin" />
+      <IconLoader2 aria-hidden className="size-5 animate-spin" />
       <span>{label}</span>
     </div>
   );
@@ -30,7 +30,7 @@ export function EmptyState({ title, description, action, icon, className }: Mess
   return (
     <div className={cn("flex flex-col items-center gap-3 px-6 py-12 text-center", className)}>
       <span aria-hidden className="text-brand-rose-gold">
-        {icon ?? <PackageOpen className="size-8" strokeWidth={1.25} />}
+        {icon ?? <IconPackageOff className="size-8" strokeWidth={1.25} />}
       </span>
       <p className="font-display text-h4 text-text-primary">{title}</p>
       {description && <p className="max-w-sm text-body-s text-text-secondary">{description}</p>}
@@ -47,7 +47,7 @@ export function ErrorState({
 }: Partial<MessageStateProps>) {
   return (
     <div role="alert" className={cn("flex flex-col items-center gap-3 px-6 py-12 text-center", className)}>
-      <CircleAlert aria-hidden className="size-8 text-error" strokeWidth={1.25} />
+      <IconAlertCircle aria-hidden className="size-8 text-error" strokeWidth={1.25} />
       <p className="font-display text-h4 text-text-primary">{title}</p>
       <p className="max-w-sm text-body-s text-text-secondary">{description}</p>
       {action && <div className="mt-2">{action}</div>}

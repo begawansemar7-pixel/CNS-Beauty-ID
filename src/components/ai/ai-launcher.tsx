@@ -1,6 +1,6 @@
 "use client";
 
-import { IconSparkles as Sparkles } from "@tabler/icons-react";
+import { IconSparkles } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
 
 import { ROUTES } from "@/constants/routes";
@@ -23,7 +23,7 @@ export function AILauncher() {
       onClick={() => openAIPanel()}
       className="fixed right-4 bottom-(--fab-bottom) z-30 inline-flex size-14 items-center justify-center gap-2 rounded-pill bg-primary text-body-s font-medium text-on-primary shadow-md transition-colors duration-(--duration-base) hover:bg-brand-cocoa-dark desktop:right-6 desktop:bottom-6 desktop:h-12 desktop:w-auto desktop:px-5"
     >
-      <Sparkles aria-hidden className="size-5 desktop:size-4" />
+      <IconSparkles aria-hidden className="size-5 desktop:size-4" />
       <span className="sr-only desktop:not-sr-only">Tanya Beauty AI</span>
     </button>
   );

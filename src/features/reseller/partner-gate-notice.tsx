@@ -1,4 +1,4 @@
-import { IconHeartHandshake as Handshake } from "@tabler/icons-react";
+import { IconHeartHandshake } from "@tabler/icons-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/ui/states";
@@ -20,7 +20,7 @@ export function PartnerGateNotice({ status, retryHref }: { status: "not_partner"
   }
   return (
     <EmptyState
-      icon={<Handshake className="size-8" strokeWidth={1.25} />}
+      icon={<IconHeartHandshake className="size-8" strokeWidth={1.25} />}
       title="Portal khusus partner"
       description="Portal ini tersedia untuk reseller dan dropshipper CNS Beauty yang sudah disetujui."
       action={<ButtonLink href={ROUTES.resellerProgram}>Daftar jadi partner</ButtonLink>}

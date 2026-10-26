@@ -1,4 +1,4 @@
-import { IconCircleCheck as CircleCheck, IconClock as Clock, IconMessageCircle as MessageCircle } from "@tabler/icons-react";
+import { IconCircleCheck, IconClock, IconMessageCircle } from "@tabler/icons-react";
 import type { ReactNode } from "react";
 
 import { Badge } from "@/components/ui/badge";
@@ -53,7 +53,7 @@ export function OrderView({ order, userId, payment, deadline, whatsapp }: OrderV
                 <p className="mt-1 font-display text-h3">{formatIDR(order.total)}</p>
                 {deadline && (
                   <p className="mt-2 flex items-center gap-2 text-body-s text-text-primary">
-                    <Clock aria-hidden className="size-4 text-warning" />
+                    <IconClock aria-hidden className="size-4 text-warning" />
                     Bayar sebelum {formatDateTime(deadline)}
                   </p>
                 )}
@@ -82,7 +82,7 @@ export function OrderView({ order, userId, payment, deadline, whatsapp }: OrderV
 
               {order.proofCount > 0 ? (
                 <p role="status" className="flex items-center gap-2 text-body-s text-success">
-                  <CircleCheck aria-hidden className="size-4" />
+                  <IconCircleCheck aria-hidden className="size-4" />
                   Bukti pembayaran sudah kami terima dan sedang diverifikasi.
                 </p>
               ) : (
@@ -96,7 +96,7 @@ export function OrderView({ order, userId, payment, deadline, whatsapp }: OrderV
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-body-s font-medium text-text-primary underline underline-offset-4"
                 >
-                  <MessageCircle aria-hidden className="size-4" />
+                  <IconMessageCircle aria-hidden className="size-4" />
                   Konfirmasi via WhatsApp
                   <span className="sr-only">(membuka WhatsApp)</span>
                 </a>

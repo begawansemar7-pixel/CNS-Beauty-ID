@@ -1,6 +1,6 @@
 "use client";
 
-import { IconHeart as Heart, IconMenu as Menu, IconSearch as Search, IconSparkles as Sparkles, IconUser as User } from "@tabler/icons-react";
+import { IconHeart, IconMenu, IconSearch, IconSparkles, IconUser } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -14,9 +14,9 @@ import { isActivePath } from "@/lib/utils/nav";
 import { useUIStore } from "@/stores/ui-store";
 
 const SECONDARY = [
-  { label: "Cari produk", href: ROUTES.products, icon: Search },
-  { label: "Wishlist", href: ROUTES.account.wishlist, icon: Heart },
-  { label: "Akun saya", href: ROUTES.account.dashboard, icon: User },
+  { label: "Cari produk", href: ROUTES.products, icon: IconSearch },
+  { label: "Wishlist", href: ROUTES.account.wishlist, icon: IconHeart },
+  { label: "Akun saya", href: ROUTES.account.dashboard, icon: IconUser },
 ];
 
 export function MobileNav() {
@@ -30,7 +30,7 @@ export function MobileNav() {
       <IconButton
         label="Buka menu"
         aria-expanded={open}
-        icon={<Menu aria-hidden className="size-5" strokeWidth={1.5} />}
+        icon={<IconMenu aria-hidden className="size-5" strokeWidth={1.5} />}
         onClick={() => setOpen(true)}
         className="-ml-2"
       />
@@ -63,7 +63,7 @@ export function MobileNav() {
           variant="ai"
           fullWidth
           className="mt-6"
-          leadingIcon={<Sparkles aria-hidden className="size-4" />}
+          leadingIcon={<IconSparkles aria-hidden className="size-4" />}
           onClick={() => {
             close();
             openAIPanel();

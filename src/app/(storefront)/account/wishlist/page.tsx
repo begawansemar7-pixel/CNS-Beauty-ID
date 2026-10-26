@@ -1,4 +1,4 @@
-import { IconHeart as Heart } from "@tabler/icons-react";
+import { IconHeart } from "@tabler/icons-react";
 
 import { ProductGrid } from "@/components/product/product-grid";
 import { ButtonLink } from "@/components/ui/button";
@@ -37,7 +37,7 @@ export default async function AccountWishlistPage() {
           }}
           empty={
             <EmptyState
-              icon={<Heart className="size-8" strokeWidth={1.25} />}
+              icon={<IconHeart className="size-8" strokeWidth={1.25} />}
               title="Wishlist masih kosong"
               description="Simpan produk favoritmu dari halaman produk untuk melihatnya lagi di sini."
               action={<ButtonLink href={ROUTES.products}>Jelajahi Produk</ButtonLink>}

@@ -1,4 +1,4 @@
-import { IconFileText as ScrollText } from "@tabler/icons-react";
+import { IconFileText } from "@tabler/icons-react";
 
 import { EmptyState } from "@/components/ui/states";
 import { ROUTES } from "@/constants/routes";
@@ -20,7 +20,7 @@ export default async function AdminAuditLogPage() {
       {entries === null ? (
         <InsightError href={ROUTES.admin.auditLog} />
       ) : entries.length === 0 ? (
-        <EmptyState icon={<ScrollText className="size-8" strokeWidth={1.25} />} title="Belum ada aksi admin" />
+        <EmptyState icon={<IconFileText className="size-8" strokeWidth={1.25} />} title="Belum ada aksi admin" />
       ) : (
         <ul className="flex flex-col divide-y divide-border rounded-lg border border-border bg-background text-body-s">
           {entries.map((entry) => (

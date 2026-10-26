@@ -1,4 +1,4 @@
-import { IconShoppingBag as ShoppingBag } from "@tabler/icons-react";
+import { IconShoppingBag } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import type { ReactNode } from "react";
@@ -67,7 +67,7 @@ export default async function CheckoutPage({ searchParams }: PageProps<"/checkou
     return (
       <Shell email={user.email}>
         <EmptyState
-          icon={<ShoppingBag className="size-8" strokeWidth={1.25} />}
+          icon={<IconShoppingBag className="size-8" strokeWidth={1.25} />}
           title="Keranjangmu masih kosong"
           description="Tambahkan produk ke keranjang sebelum checkout."
           action={<ButtonLink href={ROUTES.products}>Jelajahi Produk</ButtonLink>}

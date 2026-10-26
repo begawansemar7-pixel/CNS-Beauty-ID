@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { IconMailCheck as MailCheck } from "@tabler/icons-react";
+import { IconMailCheck } from "@tabler/icons-react";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import type { z } from "zod";
@@ -33,7 +33,7 @@ export function SignUpForm({ next }: { next: string }) {
   if (result?.status === "check_email") {
     return (
       <div role="status" className="flex flex-col items-start gap-3 rounded-lg bg-surface p-6">
-        <MailCheck aria-hidden className="size-7 text-success" strokeWidth={1.5} />
+        <IconMailCheck aria-hidden className="size-7 text-success" strokeWidth={1.5} />
         <p className="font-display text-h4">Cek emailmu</p>
         <p className="text-body-s text-text-secondary">
           Kami mengirim tautan konfirmasi ke <strong className="font-medium text-text-primary">{result.email}</strong>. Buka

@@ -1,4 +1,4 @@
-import { IconArrowRight as ArrowRight } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 
 import { AskAIButton } from "@/components/ai/ask-ai-button";
 import { ArchMedia } from "@/components/layout/arch-media";
@@ -29,7 +29,7 @@ export function Hero() {
               href={ROUTES.products}
               variant="brand"
               size="lg"
-              trailingIcon={<ArrowRight aria-hidden className="size-4" />}
+              trailingIcon={<IconArrowRight aria-hidden className="size-4" />}
             >
               {copy.primaryCta}
             </ButtonLink>

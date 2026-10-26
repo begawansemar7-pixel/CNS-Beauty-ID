@@ -1,4 +1,4 @@
-import { IconPackage as Package } from "@tabler/icons-react";
+import { IconPackage } from "@tabler/icons-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/ui/states";
@@ -31,7 +31,7 @@ export default async function AccountOrdersPage({ searchParams }: PageProps<"/ac
         />
       ) : result.orders.length === 0 ? (
         <EmptyState
-          icon={<Package className="size-8" strokeWidth={1.25} />}
+          icon={<IconPackage className="size-8" strokeWidth={1.25} />}
           title={page > 1 ? "Tidak ada pesanan di halaman ini" : "Belum ada pesanan"}
           description="Pesanan yang kamu buat akan muncul di sini."
           action={<ButtonLink href={page > 1 ? ROUTES.account.orders : ROUTES.products}>{page > 1 ? "Ke halaman pertama" : "Mulai belanja"}</ButtonLink>}

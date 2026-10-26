@@ -1,4 +1,4 @@
-import { IconLoader2 as LoaderCircle } from "@tabler/icons-react";
+import { IconLoader2 } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 
@@ -75,7 +75,7 @@ export function Button({
       className={cn(buttonClassName({ variant, size, fullWidth }), className)}
       {...props}
     >
-      {loading ? <LoaderCircle aria-hidden className="size-4 animate-spin" /> : leadingIcon}
+      {loading ? <IconLoader2 aria-hidden className="size-4 animate-spin" /> : leadingIcon}
       {children}
       {trailingIcon}
     </button>

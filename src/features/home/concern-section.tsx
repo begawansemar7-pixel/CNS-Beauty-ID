@@ -1,4 +1,4 @@
-import { IconArrowRight as ArrowRight } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
@@ -31,7 +31,7 @@ export function ConcernSection({ concerns }: { concerns: readonly SkinConcern[] 
                 <span className="mt-auto flex items-center gap-2 pt-4 text-body-s font-medium text-brand-cocoa">
                   {copy.cardCta}
                   <span className="text-text-secondary">({concern.productCount})</span>
-                  <ArrowRight
+                  <IconArrowRight
                     aria-hidden
                     className="size-4 transition-transform duration-(--duration-base) desktop:group-hover:translate-x-1"
                   />

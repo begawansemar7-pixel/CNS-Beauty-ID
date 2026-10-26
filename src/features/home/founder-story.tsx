@@ -1,4 +1,4 @@
-import { IconQuote as Quote } from "@tabler/icons-react";
+import { IconQuote } from "@tabler/icons-react";
 
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button";
@@ -19,7 +19,7 @@ export function FounderStory({ showCta = true }: { showCta?: boolean }) {
         </h2>
 
         <figure className="mt-10 flex max-w-3xl flex-col items-center">
-          <Quote aria-hidden className="size-10 text-brand-gold" strokeWidth={1} />
+          <IconQuote aria-hidden className="size-10 text-brand-gold" strokeWidth={1} />
           <blockquote className="mt-6">
             <p className="font-display text-h2 text-brand-cocoa-dark italic">{copy.quote}</p>
           </blockquote>

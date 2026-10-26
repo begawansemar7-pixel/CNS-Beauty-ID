@@ -1,6 +1,6 @@
 "use client";
 
-import { IconUpload as Upload } from "@tabler/icons-react";
+import { IconUpload } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import { useState, useTransition, type FormEvent } from "react";
 
@@ -70,7 +70,7 @@ export function ProofUpload({ orderId, userId }: { orderId: string; userId: stri
       />
       <FieldHint id="payment-proof">JPG, PNG, WEBP, atau PDF, maksimal 5 MB.</FieldHint>
       {error && <FieldError id="payment-proof">{error}</FieldError>}
-      <Button type="submit" variant="secondary" loading={pending} leadingIcon={<Upload aria-hidden className="size-4" />}>
+      <Button type="submit" variant="secondary" loading={pending} leadingIcon={<IconUpload aria-hidden className="size-4" />}>
         Kirim bukti pembayaran
       </Button>
     </form>

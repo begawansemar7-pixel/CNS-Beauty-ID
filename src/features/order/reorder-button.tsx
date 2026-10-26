@@ -1,6 +1,6 @@
 "use client";
 
-import { IconRefresh as RotateCcw } from "@tabler/icons-react";
+import { IconRefresh } from "@tabler/icons-react";
 import { useState, useTransition } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,7 @@ export function ReorderButton({ orderId }: { orderId: string }) {
         variant="primary"
         fullWidth
         loading={pending}
-        leadingIcon={<RotateCcw aria-hidden className="size-4" />}
+        leadingIcon={<IconRefresh aria-hidden className="size-4" />}
         onClick={() =>
           startTransition(async () => {
             const result = await reorderAction(orderId);

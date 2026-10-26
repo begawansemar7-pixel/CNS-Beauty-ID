@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { IconHeart as Heart } from "@tabler/icons-react";
+import { IconHeart } from "@tabler/icons-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 
@@ -60,7 +60,7 @@ export function WishlistButton({ productId, productName }: { productId: string; 
         fullWidth
         loading={pending}
         onClick={toggle}
-        leadingIcon={<Heart aria-hidden className={saved ? "size-4 fill-current text-brand-rose-gold" : "size-4"} />}
+        leadingIcon={<IconHeart aria-hidden className={saved ? "size-4 fill-current text-brand-rose-gold" : "size-4"} />}
       >
         {saved ? "Tersimpan di wishlist" : "Simpan ke wishlist"}
         <span className="sr-only"> {productName}</span>

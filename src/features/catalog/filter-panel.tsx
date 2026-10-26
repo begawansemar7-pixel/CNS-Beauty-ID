@@ -1,4 +1,4 @@
-import { IconCheck as Check } from "@tabler/icons-react";
+import { IconCheck } from "@tabler/icons-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils/cn";
@@ -56,7 +56,7 @@ export function FilterPanel({ basePath, query, facets, idPrefix }: FilterPanelPr
                             selected ? "border-brand-cocoa bg-brand-cocoa text-on-primary" : "border-border",
                           )}
                         >
-                          {selected && <Check className="size-3" strokeWidth={2.5} />}
+                          {selected && <IconCheck className="size-3" strokeWidth={2.5} />}
                         </span>
                         {option.label}
                       </Link>

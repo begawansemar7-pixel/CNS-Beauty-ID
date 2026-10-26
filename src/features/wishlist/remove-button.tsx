@@ -1,7 +1,7 @@
 "use client";
 
 import { useQueryClient } from "@tanstack/react-query";
-import { IconX as X } from "@tabler/icons-react";
+import { IconX } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 
@@ -28,7 +28,7 @@ export function RemoveFromWishlistButton({ productId, productName }: { productId
       }
       className="inline-flex min-h-11 items-center gap-1 text-body-s font-medium text-text-primary underline underline-offset-4 disabled:opacity-50"
     >
-      <X aria-hidden className="size-4" />
+      <IconX aria-hidden className="size-4" />
       Hapus<span className="sr-only"> {productName} dari wishlist</span>
     </button>
   );

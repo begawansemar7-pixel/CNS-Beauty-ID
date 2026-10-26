@@ -1,4 +1,4 @@
-import { IconChevronDown as ChevronDown } from "@tabler/icons-react";
+import { IconChevronDown } from "@tabler/icons-react";
 import type { ComponentProps } from "react";
 
 import { cn } from "@/lib/utils/cn";
@@ -45,7 +45,7 @@ export function Select({
             </option>
           ))}
         </select>
-        <ChevronDown
+        <IconChevronDown
           aria-hidden
           className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-text-secondary"
         />

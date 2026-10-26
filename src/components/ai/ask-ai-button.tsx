@@ -1,6 +1,6 @@
 "use client";
 
-import { IconSparkles as Sparkles } from "@tabler/icons-react";
+import { IconSparkles } from "@tabler/icons-react";
 import type { ReactNode } from "react";
 
 import { Button, type ButtonSize, type ButtonVariant } from "@/components/ui/button";
@@ -25,7 +25,7 @@ export function AskAIButton({ prefill, variant = "ai", size, fullWidth, classNam
       size={size}
       fullWidth={fullWidth}
       className={className}
-      leadingIcon={<Sparkles aria-hidden className="size-4" />}
+      leadingIcon={<IconSparkles aria-hidden className="size-4" />}
       onClick={() => openAIPanel(prefill)}
     >
       {children}

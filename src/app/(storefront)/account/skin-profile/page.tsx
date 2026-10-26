@@ -1,4 +1,4 @@
-import { IconSparkles as Sparkles } from "@tabler/icons-react";
+import { IconSparkles } from "@tabler/icons-react";
 
 import { AskAIButton } from "@/components/ai/ask-ai-button";
 import { ButtonLink } from "@/components/ui/button";
@@ -29,7 +29,7 @@ export default async function AccountSkinProfilePage() {
         />
       ) : profile === null ? (
         <EmptyState
-          icon={<Sparkles className="size-8" strokeWidth={1.25} />}
+          icon={<IconSparkles className="size-8" strokeWidth={1.25} />}
           title="Belum ada profil kulit"
           description="Ikuti Skin Quiz untuk menyimpan profil kulit dan mendapatkan rekomendasi rutinitas."
           action={<ButtonLink href={ROUTES.skinQuiz}>Mulai Skin Quiz</ButtonLink>}

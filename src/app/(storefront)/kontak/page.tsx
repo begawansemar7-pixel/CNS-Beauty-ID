@@ -1,4 +1,4 @@
-import { IconAt as AtSign, IconMail as Mail, IconMapPin as MapPin, IconMessageCircle as MessageCircle } from "@tabler/icons-react";
+import { IconAt, IconMail, IconMapPin, IconMessageCircle } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -43,7 +43,7 @@ export default async function ContactPage() {
               {contact?.whatsapp && (
                 <li>
                   <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" className={buttonClassName({ variant: "primary", size: "lg" })}>
-                    <MessageCircle aria-hidden className="size-5" />
+                    <IconMessageCircle aria-hidden className="size-5" />
                     WhatsApp <span className="whitespace-nowrap">{contact.whatsapp_display ?? `+${contact.whatsapp}`}</span>
                     <span className="sr-only">(membuka WhatsApp)</span>
                   </a>
@@ -52,7 +52,7 @@ export default async function ContactPage() {
               {handle && (
                 <li>
                   <a href={`https://instagram.com/${handle}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-3 text-body underline underline-offset-4">
-                    <AtSign aria-hidden className="size-5 text-text-secondary" />@{handle}
+                    <IconAt aria-hidden className="size-5 text-text-secondary" />@{handle}
                     <span className="sr-only">(Instagram, membuka tab baru)</span>
                   </a>
                 </li>
@@ -60,14 +60,14 @@ export default async function ContactPage() {
               {contact?.email && (
                 <li>
                   <a href={`mailto:${contact.email}`} className="inline-flex min-h-11 items-center gap-3 text-body underline underline-offset-4">
-                    <Mail aria-hidden className="size-5 text-text-secondary" />
+                    <IconMail aria-hidden className="size-5 text-text-secondary" />
                     {contact.email}
                   </a>
                 </li>
               )}
               {place && (
                 <li className="inline-flex min-h-11 items-center gap-3 text-body text-text-secondary">
-                  <MapPin aria-hidden className="size-5" />
+                  <IconMapPin aria-hidden className="size-5" />
                   {place}
                 </li>
               )}

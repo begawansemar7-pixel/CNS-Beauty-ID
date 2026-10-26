@@ -1,6 +1,6 @@
 "use client";
 
-import { IconAdjustmentsHorizontal as SlidersHorizontal } from "@tabler/icons-react";
+import { IconAdjustmentsHorizontal } from "@tabler/icons-react";
 import { useState, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,7 @@ export function FilterDrawer({ activeCount, children }: { activeCount: number; c
       <Button
         variant="secondary"
         size="sm"
-        leadingIcon={<SlidersHorizontal aria-hidden className="size-4" />}
+        leadingIcon={<IconAdjustmentsHorizontal aria-hidden className="size-4" />}
         onClick={() => setOpen(true)}
         aria-expanded={open}
       >

@@ -1,6 +1,6 @@
 "use client";
 
-import { IconSend2 as SendHorizontal } from "@tabler/icons-react";
+import { IconSend2 } from "@tabler/icons-react";
 import { useId, useState } from "react";
 
 import { IconButton } from "@/components/ui/icon-button";
@@ -53,7 +53,7 @@ export function AIInput({ onSubmit, value: controlledValue, onValueChange, disab
         variant="solid"
         label="Kirim pesan"
         disabled={!trimmed || disabled}
-        icon={<SendHorizontal aria-hidden className="size-4" />}
+        icon={<IconSend2 aria-hidden className="size-4" />}
       />
     </form>
   );

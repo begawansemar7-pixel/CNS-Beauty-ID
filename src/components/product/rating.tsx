@@ -1,4 +1,4 @@
-import { IconStar as Star } from "@tabler/icons-react";
+import { IconStar } from "@tabler/icons-react";
 
 import { cn } from "@/lib/utils/cn";
 import { formatRating } from "@/lib/utils/format";
@@ -16,7 +16,7 @@ export function Rating({ average, count, className }: { average: number; count: 
       </span>
       <span aria-hidden className="flex gap-0.5">
         {Array.from({ length: 5 }, (_, index) => (
-          <Star
+          <IconStar
             key={index}
             className={cn("size-3.5", index < filled ? "fill-brand-gold text-brand-gold" : "text-border")}
             strokeWidth={1.5}

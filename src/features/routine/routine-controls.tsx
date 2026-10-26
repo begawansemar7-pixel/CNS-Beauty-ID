@@ -1,6 +1,6 @@
 "use client";
 
-import { IconShoppingBag as ShoppingBag, IconX as X } from "@tabler/icons-react";
+import { IconShoppingBag, IconX } from "@tabler/icons-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
@@ -27,7 +27,7 @@ export function RemoveRoutineItemButton({ itemId, label }: { itemId: string; lab
       }
       className="inline-flex min-h-11 min-w-11 items-center justify-center text-text-secondary hover:text-text-primary disabled:opacity-50"
     >
-      <X aria-hidden className="size-4" />
+      <IconX aria-hidden className="size-4" />
       <span className="sr-only">Hapus {label} dari rutinitas</span>
     </button>
   );
@@ -53,7 +53,7 @@ export function RoutineCartButton({ productIds }: { productIds: string[] }) {
         }
         loading={pending}
         disabled={disabled}
-        leadingIcon={<ShoppingBag aria-hidden className="size-4" />}
+        leadingIcon={<IconShoppingBag aria-hidden className="size-4" />}
       >
         {disabled ? "Produk rutinitas sedang tidak tersedia" : "Tambahkan rutinitas ke keranjang"}
       </Button>

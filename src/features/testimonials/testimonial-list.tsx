@@ -1,4 +1,4 @@
-import { IconRosetteDiscountCheck as BadgeCheck } from "@tabler/icons-react";
+import { IconRosetteDiscountCheck } from "@tabler/icons-react";
 
 import { Card } from "@/components/ui/card";
 import { TESTIMONIALS_COPY } from "@/content/testimonials";
@@ -19,7 +19,7 @@ export function TestimonialList({ testimonials }: { testimonials: readonly Testi
               {item.productName && <span className="text-text-secondary">{item.productName}</span>}
               {item.verifiedPurchase && (
                 <span className="mt-1 flex items-center gap-1 text-caption text-success">
-                  <BadgeCheck aria-hidden className="size-4" />
+                  <IconRosetteDiscountCheck aria-hidden className="size-4" />
                   {TESTIMONIALS_COPY.verified}
                 </span>
               )}

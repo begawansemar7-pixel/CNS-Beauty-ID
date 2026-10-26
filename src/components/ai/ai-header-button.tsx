@@ -1,6 +1,6 @@
 "use client";
 
-import { IconSparkles as Sparkles } from "@tabler/icons-react";
+import { IconSparkles } from "@tabler/icons-react";
 
 import { Button } from "@/components/ui/button";
 import { useUIStore } from "@/stores/ui-store";
@@ -13,7 +13,7 @@ export function AIHeaderButton({ className }: { className?: string }) {
       size="sm"
       onClick={() => openAIPanel()}
       className={className}
-      leadingIcon={<Sparkles aria-hidden className="size-4 text-ai-accent" />}
+      leadingIcon={<IconSparkles aria-hidden className="size-4 text-ai-accent" />}
     >
       Beauty AI
     </Button>

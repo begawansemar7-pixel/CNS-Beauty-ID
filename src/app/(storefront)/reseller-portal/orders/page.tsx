@@ -1,4 +1,4 @@
-import { IconClipboardList as ClipboardList } from "@tabler/icons-react";
+import { IconClipboardList } from "@tabler/icons-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { EmptyState, ErrorState } from "@/components/ui/states";
@@ -31,7 +31,7 @@ export default async function ResellerOrdersPage() {
         />
       ) : orders.length === 0 ? (
         <EmptyState
-          icon={<ClipboardList className="size-8" strokeWidth={1.25} />}
+          icon={<IconClipboardList className="size-8" strokeWidth={1.25} />}
           title="Belum ada pesanan partner"
           description="Pesanan dengan harga partner akan tampil di sini."
           action={<ButtonLink href={ROUTES.resellerPortal.products}>Lihat harga partner</ButtonLink>}

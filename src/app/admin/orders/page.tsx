@@ -1,4 +1,4 @@
-import { IconClipboardList as ClipboardList } from "@tabler/icons-react";
+import { IconClipboardList } from "@tabler/icons-react";
 import Form from "next/form";
 import Link from "next/link";
 
@@ -64,7 +64,7 @@ export default async function AdminOrdersPage({ searchParams }: PageProps<"/admi
           }
         />
       ) : result.orders.length === 0 ? (
-        <EmptyState icon={<ClipboardList className="size-8" strokeWidth={1.25} />} title="Tidak ada pesanan" description={status || search ? "Tidak ada pesanan yang cocok dengan filter." : "Pesanan baru akan tampil di sini."} />
+        <EmptyState icon={<IconClipboardList className="size-8" strokeWidth={1.25} />} title="Tidak ada pesanan" description={status || search ? "Tidak ada pesanan yang cocok dengan filter." : "Pesanan baru akan tampil di sini."} />
       ) : (
         <div className="flex flex-col gap-4">
           <div className="overflow-x-auto rounded-lg border border-border bg-background">

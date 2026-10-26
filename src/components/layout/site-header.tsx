@@ -1,4 +1,4 @@
-import { IconHeart as Heart, IconSearch as Search, IconUser as User } from "@tabler/icons-react";
+import { IconHeart, IconSearch, IconUser } from "@tabler/icons-react";
 
 import { AIHeaderButton } from "@/components/ai/ai-header-button";
 import { IconLink } from "@/components/ui/icon-button";
@@ -30,10 +30,10 @@ export function SiteHeader() {
         <div className="flex flex-1 items-center justify-end gap-1 desktop:flex-none">
           {/* Display toggles live on wrappers, never on components that set their own display. */}
           <div className="hidden items-center gap-1 desktop:flex">
-            <IconLink href={ROUTES.products} label="Cari produk" icon={<Search {...ICON} />} />
+            <IconLink href={ROUTES.products} label="Cari produk" icon={<IconSearch {...ICON} />} />
             <AIHeaderButton className="mx-2" />
-            <IconLink href={ROUTES.account.wishlist} label="Wishlist" icon={<Heart {...ICON} />} />
-            <IconLink href={ROUTES.account.dashboard} label="Akun saya" icon={<User {...ICON} />} />
+            <IconLink href={ROUTES.account.wishlist} label="Wishlist" icon={<IconHeart {...ICON} />} />
+            <IconLink href={ROUTES.account.dashboard} label="Akun saya" icon={<IconUser {...ICON} />} />
           </div>
           <CartLink className="-mr-2 desktop:mr-0" />
         </div>

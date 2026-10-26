@@ -1,4 +1,4 @@
-import { IconStar as Star } from "@tabler/icons-react";
+import { IconStar } from "@tabler/icons-react";
 import Form from "next/form";
 import Link from "next/link";
 
@@ -17,7 +17,7 @@ export function PointsForm({ balance, requested, applied, pointValue, maxPercent
   return (
     <section aria-labelledby="points-title" className="mb-8 rounded-lg border border-border p-5">
       <h2 id="points-title" className="flex items-center gap-2 text-h4">
-        <Star aria-hidden className="size-4 text-ai-accent" />
+        <IconStar aria-hidden className="size-4 text-ai-accent" />
         Pakai poin CNS Rewards
       </h2>
       <p className="mt-1 text-body-s text-text-secondary">

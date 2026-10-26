@@ -1,6 +1,6 @@
 "use client";
 
-import { IconSparkles as Sparkles } from "@tabler/icons-react";
+import { IconSparkles } from "@tabler/icons-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -27,7 +27,7 @@ export function OverlayDemos() {
       <Button variant="secondary" onClick={() => setOpen("sheet")}>
         Buka bottom sheet
       </Button>
-      <Button variant="ai" leadingIcon={<Sparkles aria-hidden className="size-4" />} onClick={() => openAIPanel()}>
+      <Button variant="ai" leadingIcon={<IconSparkles aria-hidden className="size-4" />} onClick={() => openAIPanel()}>
         Buka Beauty AI
       </Button>
       <Button

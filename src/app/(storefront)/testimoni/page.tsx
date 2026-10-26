@@ -1,4 +1,4 @@
-import { IconMessageCircleHeart as MessageCircleHeart } from "@tabler/icons-react";
+import { IconMessageCircleHeart } from "@tabler/icons-react";
 import type { Metadata } from "next";
 
 import { Container } from "@/components/layout/container";
@@ -34,7 +34,7 @@ export default async function TestimonialsPage() {
             <TestimonialList testimonials={testimonials} />
           ) : (
             <EmptyState
-              icon={<MessageCircleHeart className="size-8" strokeWidth={1.25} />}
+              icon={<IconMessageCircleHeart className="size-8" strokeWidth={1.25} />}
               title={copy.empty.title}
               description={copy.empty.description}
               action={

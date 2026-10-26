@@ -1,6 +1,6 @@
 "use client";
 
-import { IconX as X } from "@tabler/icons-react";
+import { IconX } from "@tabler/icons-react";
 import { useEffect, useId, useRef, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils/cn";
@@ -73,7 +73,7 @@ export function Dialog({
               </p>
             )}
           </div>
-          <IconButton label="Tutup" icon={<X aria-hidden className="size-5" />} onClick={onClose} className="-mr-2" />
+          <IconButton label="Tutup" icon={<IconX aria-hidden className="size-5" />} onClick={onClose} className="-mr-2" />
         </div>
         <div className="flex-1 overflow-y-auto px-6 py-6">{children}</div>
         {footer && <div className="border-t border-border px-6 py-4">{footer}</div>}

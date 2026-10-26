@@ -1,4 +1,4 @@
-import { IconAlertCircle as CircleAlert, IconCircleCheck as CircleCheck, IconMessageCircle as MessageCircle } from "@tabler/icons-react";
+import { IconAlertCircle, IconCircleCheck, IconMessageCircle } from "@tabler/icons-react";
 
 import { AskAIButton } from "@/components/ai/ask-ai-button";
 import { Price } from "@/components/product/price";
@@ -28,9 +28,9 @@ export function PurchasePanel({ product, whatsapp }: PurchasePanelProps) {
 
       <p className={soldOut ? "flex items-center gap-2 text-body-s text-text-primary" : "flex items-center gap-2 text-body-s text-success"}>
         {soldOut ? (
-          <CircleAlert aria-hidden className="size-4 text-warning" />
+          <IconAlertCircle aria-hidden className="size-4 text-warning" />
         ) : (
-          <CircleCheck aria-hidden className="size-4" />
+          <IconCircleCheck aria-hidden className="size-4" />
         )}
         {soldOut ? "Stok habis" : "Tersedia"}
       </p>
@@ -49,7 +49,7 @@ export function PurchasePanel({ product, whatsapp }: PurchasePanelProps) {
             rel="noopener noreferrer"
             className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-primary text-body-s font-medium text-text-primary transition-colors duration-(--duration-base) hover:bg-secondary"
           >
-            <MessageCircle aria-hidden className="size-4" />
+            <IconMessageCircle aria-hidden className="size-4" />
             {soldOut ? "Tanya via WhatsApp" : "Pesan via WhatsApp"}
             <span className="sr-only">(membuka WhatsApp)</span>
           </a>

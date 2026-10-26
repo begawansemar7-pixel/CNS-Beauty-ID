@@ -1,4 +1,4 @@
-import { IconChevronLeft as ChevronLeft } from "@tabler/icons-react";
+import { IconChevronLeft } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -28,7 +28,7 @@ export default async function OrderPage({ params }: PageProps<"/account/orders/[
     <div className="flex flex-col gap-8">
       <div>
         <Link href={ROUTES.account.orders} className="inline-flex min-h-11 items-center gap-1 text-body-s text-text-secondary hover:text-text-primary">
-          <ChevronLeft aria-hidden className="size-4" />
+          <IconChevronLeft aria-hidden className="size-4" />
           Semua pesanan
         </Link>
         <p className="text-caption tracking-eyebrow text-text-secondary uppercase">Pesanan</p>

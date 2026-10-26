@@ -1,4 +1,4 @@
-import { IconSparkles as Sparkles } from "@tabler/icons-react";
+import { IconSparkles } from "@tabler/icons-react";
 import Link from "next/link";
 
 import { AskAIButton, AskAIChip } from "@/components/ai/ask-ai-button";
@@ -15,7 +15,7 @@ export function AIConciergeSection() {
       <Container className="cns-reveal grid items-center gap-10 desktop:grid-cols-2 desktop:gap-16">
         <div className="flex flex-col items-start">
           <p className="flex items-center gap-2 text-caption tracking-eyebrow text-brand-cocoa uppercase">
-            <Sparkles aria-hidden className="size-4 text-ai-accent" />
+            <IconSparkles aria-hidden className="size-4 text-ai-accent" />
             {copy.eyebrow}
           </p>
           <h2 id="ai-title" className="mt-4 text-h1 text-text-primary">

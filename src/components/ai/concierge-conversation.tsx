@@ -1,6 +1,6 @@
 "use client";
 
-import { IconMessageCircle as MessageCircle, IconSquare as Square } from "@tabler/icons-react";
+import { IconMessageCircle, IconSquare } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
@@ -104,7 +104,7 @@ export function ConciergeConversation({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 self-start rounded-pill border border-primary px-4 py-2 text-body-s font-medium text-text-primary transition-colors duration-(--duration-base) hover:bg-secondary"
               >
-                <MessageCircle aria-hidden className="size-4" />
+                <IconMessageCircle aria-hidden className="size-4" />
                 Chat tim CNS Beauty di WhatsApp
                 <span className="sr-only">(membuka WhatsApp)</span>
               </a>
@@ -117,7 +117,7 @@ export function ConciergeConversation({
             onClick={onNavigate}
             className="inline-flex items-center gap-2 self-start text-body-s font-medium text-brand-cocoa underline underline-offset-4"
           >
-            <MessageCircle aria-hidden className="size-4" />
+            <IconMessageCircle aria-hidden className="size-4" />
             Hubungi tim CNS Beauty
           </Link>
         )}
@@ -156,7 +156,7 @@ export function ConciergeConversation({
               disabled={pending}
             />
           </div>
-          {pending && <IconButton label="Hentikan jawaban" icon={<Square aria-hidden className="size-4" />} onClick={stop} />}
+          {pending && <IconButton label="Hentikan jawaban" icon={<IconSquare aria-hidden className="size-4" />} onClick={stop} />}
         </div>
         <p className="text-caption text-text-secondary">{AI_COPY.disclaimer}</p>
       </div>

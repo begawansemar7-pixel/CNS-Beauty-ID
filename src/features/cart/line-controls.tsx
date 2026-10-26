@@ -1,6 +1,6 @@
 "use client";
 
-import { IconMinus as Minus, IconPlus as Plus, IconTrash as Trash2 } from "@tabler/icons-react";
+import { IconMinus, IconPlus, IconTrash } from "@tabler/icons-react";
 import { useState, useTransition } from "react";
 
 import { IconButton } from "@/components/ui/icon-button";
@@ -30,7 +30,7 @@ export function QuantityControl({ lineKey, quantity, productName }: { lineKey: s
           label="Kurangi jumlah"
           disabled={pending || quantity <= 1}
           onClick={() => change(quantity - 1)}
-          icon={<Minus aria-hidden className="size-4" />}
+          icon={<IconMinus aria-hidden className="size-4" />}
         />
         <span aria-live="polite" className="min-w-8 text-center text-body-s font-medium tabular-nums">
           {quantity}
@@ -40,7 +40,7 @@ export function QuantityControl({ lineKey, quantity, productName }: { lineKey: s
           label="Tambah jumlah"
           disabled={pending || quantity >= MAX_QUANTITY}
           onClick={() => change(quantity + 1)}
-          icon={<Plus aria-hidden className="size-4" />}
+          icon={<IconPlus aria-hidden className="size-4" />}
         />
       </div>
       {error && (
@@ -66,7 +66,7 @@ export function RemoveLineButton({ lineKey, productName }: { lineKey: string; pr
           if (response.ok) setCartCount(response.count);
         })
       }
-      icon={<Trash2 aria-hidden className="size-4" strokeWidth={1.5} />}
+      icon={<IconTrash aria-hidden className="size-4" strokeWidth={1.5} />}
     />
   );
 }

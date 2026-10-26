@@ -1,4 +1,4 @@
-import { IconHeart as Heart, IconPackage as Package, IconSparkles as Sparkles, IconStar as Star } from "@tabler/icons-react";
+import { IconHeart, IconPackage, IconSparkles, IconStar } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -47,7 +47,7 @@ export default async function AccountDashboardPage() {
       <h1 className="text-h1 text-brand-cocoa-dark">{firstName ? `Halo, ${firstName}` : "Akun Saya"}</h1>
 
       <Panel
-        icon={<Package {...ICON} />}
+        icon={<IconPackage {...ICON} />}
         title="Pesanan terbaru"
         action={
           <Link href={ROUTES.account.orders} className="text-body-s font-medium underline underline-offset-4">
@@ -71,7 +71,7 @@ export default async function AccountDashboardPage() {
 
       <div className="grid gap-6 tablet:grid-cols-2">
         <Panel
-          icon={<Star {...ICON} />}
+          icon={<IconStar {...ICON} />}
           title="CNS Rewards"
           action={
             <Link href={ROUTES.account.loyalty} className="text-body-s font-medium underline underline-offset-4">
@@ -90,7 +90,7 @@ export default async function AccountDashboardPage() {
         </Panel>
 
         <Panel
-          icon={<Heart {...ICON} />}
+          icon={<IconHeart {...ICON} />}
           title="Wishlist"
           action={
             <Link href={ROUTES.account.wishlist} className="text-body-s font-medium underline underline-offset-4">
@@ -104,7 +104,7 @@ export default async function AccountDashboardPage() {
         </Panel>
       </div>
 
-      <Panel icon={<Sparkles {...ICON} />} title="Rekomendasi untukmu">
+      <Panel icon={<IconSparkles {...ICON} />} title="Rekomendasi untukmu">
         <p className="text-body-s text-text-secondary">
           Ikuti Skin Quiz untuk profil kulit dan rutinitas yang disarankan, atau ceritakan kondisi kulitmu kepada CNS Beauty AI.
         </p>

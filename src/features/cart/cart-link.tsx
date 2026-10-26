@@ -1,6 +1,6 @@
 "use client";
 
-import { IconShoppingBag as ShoppingBag } from "@tabler/icons-react";
+import { IconShoppingBag } from "@tabler/icons-react";
 
 import { IconLink } from "@/components/ui/icon-button";
 import { ROUTES } from "@/constants/routes";
@@ -16,7 +16,7 @@ export function CartLink({ className }: { className?: string }) {
       href={ROUTES.cart}
       label={count > 0 ? `Keranjang, ${count} produk` : "Keranjang"}
       count={count}
-      icon={<ShoppingBag aria-hidden className="size-5" strokeWidth={1.5} />}
+      icon={<IconShoppingBag aria-hidden className="size-5" strokeWidth={1.5} />}
       className={className}
     />
   );

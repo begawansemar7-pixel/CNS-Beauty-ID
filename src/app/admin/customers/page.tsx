@@ -1,4 +1,4 @@
-import { IconUsers as Users } from "@tabler/icons-react";
+import { IconUsers } from "@tabler/icons-react";
 import Form from "next/form";
 
 import { Button, ButtonLink } from "@/components/ui/button";
@@ -51,7 +51,7 @@ export default async function AdminCustomersPage({ searchParams }: PageProps<"/a
           }
         />
       ) : result.customers.length === 0 ? (
-        <EmptyState icon={<Users className="size-8" strokeWidth={1.25} />} title="Tidak ada pelanggan" description={search ? "Tidak ada pelanggan yang cocok." : undefined} />
+        <EmptyState icon={<IconUsers className="size-8" strokeWidth={1.25} />} title="Tidak ada pelanggan" description={search ? "Tidak ada pelanggan yang cocok." : undefined} />
       ) : (
         <div className="flex flex-col gap-4">
           <div className="overflow-x-auto rounded-lg border border-border bg-background">

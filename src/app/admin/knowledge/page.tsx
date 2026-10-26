@@ -1,4 +1,4 @@
-import { IconBook2 as BookOpen } from "@tabler/icons-react";
+import { IconBook2 } from "@tabler/icons-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -34,7 +34,7 @@ export default async function AdminKnowledgePage() {
           }
         />
       ) : docs.length === 0 ? (
-        <EmptyState icon={<BookOpen className="size-8" strokeWidth={1.25} />} title="Belum ada dokumen" />
+        <EmptyState icon={<IconBook2 className="size-8" strokeWidth={1.25} />} title="Belum ada dokumen" />
       ) : (
         <ul className="flex flex-col gap-4">
           {docs.map((doc) => (

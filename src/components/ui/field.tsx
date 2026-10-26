@@ -1,4 +1,4 @@
-import { IconAlertCircle as CircleAlert } from "@tabler/icons-react";
+import { IconAlertCircle } from "@tabler/icons-react";
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils/cn";
@@ -63,7 +63,7 @@ export function FieldHint({ id, children }: { id: string; children: ReactNode })
 export function FieldError({ id, children }: { id: string; children: ReactNode }) {
   return (
     <p id={`${id}-error`} className="flex items-center gap-1 text-caption text-error">
-      <CircleAlert aria-hidden className="size-3.5 shrink-0" />
+      <IconAlertCircle aria-hidden className="size-3.5 shrink-0" />
       {children}
     </p>
   );

@@ -1,4 +1,4 @@
-import { IconGift as Gift, IconStar as Star } from "@tabler/icons-react";
+import { IconGift, IconStar } from "@tabler/icons-react";
 
 import { TrackEvent } from "@/components/analytics/track-event";
 import { ButtonLink } from "@/components/ui/button";
@@ -59,7 +59,7 @@ export default async function AccountLoyaltyPage() {
         </div>
         <div className="flex flex-col gap-3">
           <p className="flex items-center gap-2 text-body-s font-medium">
-            <Star aria-hidden className="size-4 text-ai-accent" />
+            <IconStar aria-hidden className="size-4 text-ai-accent" />
             Tingkat {progress.current?.name ?? "—"}
           </p>
           {progress.next ? (
@@ -120,7 +120,7 @@ export default async function AccountLoyaltyPage() {
         {programme.rewards.length === 0 ? (
           <EmptyState
             className="py-8"
-            icon={<Gift className="size-8" strokeWidth={1.25} />}
+            icon={<IconGift className="size-8" strokeWidth={1.25} />}
             title="Belum ada hadiah"
             description="Hadiah untuk ditukar dengan poin akan tampil di sini. Sementara itu, poinmu bisa langsung dipakai saat checkout."
           />

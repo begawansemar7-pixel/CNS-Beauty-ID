@@ -1,4 +1,4 @@
-import { IconHeart as Heart, IconShoppingBag as ShoppingBag } from "@tabler/icons-react";
+import { IconHeart, IconShoppingBag } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
@@ -110,12 +110,12 @@ export default async function DesignSystemPage() {
               </ButtonLink>
             </div>
             <div className="flex flex-wrap items-center gap-3">
-              <IconButton label="Tambah ke wishlist" icon={<Heart aria-hidden className="size-5" strokeWidth={1.5} />} />
+              <IconButton label="Tambah ke wishlist" icon={<IconHeart aria-hidden className="size-5" strokeWidth={1.5} />} />
               <IconButton
                 variant="outline"
                 label="Keranjang, 3 produk"
                 count={3}
-                icon={<ShoppingBag aria-hidden className="size-5" strokeWidth={1.5} />}
+                icon={<IconShoppingBag aria-hidden className="size-5" strokeWidth={1.5} />}
               />
             </div>
           </div>

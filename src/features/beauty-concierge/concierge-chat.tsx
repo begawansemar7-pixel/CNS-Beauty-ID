@@ -1,6 +1,6 @@
 "use client";
 
-import { IconRefresh as RotateCcw, IconSparkles as Sparkles } from "@tabler/icons-react";
+import { IconRefresh, IconSparkles } from "@tabler/icons-react";
 
 import { ConciergeConversation } from "@/components/ai/concierge-conversation";
 import { IconButton } from "@/components/ui/icon-button";
@@ -21,7 +21,7 @@ export function ConciergeChat() {
     >
       <div className="flex items-center gap-3 border-b border-border px-4 py-3 tablet:px-6">
         <span aria-hidden className="flex size-9 items-center justify-center rounded-pill bg-background text-ai-accent">
-          <Sparkles className="size-4" />
+          <IconSparkles className="size-4" />
         </span>
         <div className="flex-1">
           <h2 id={TITLE_ID} className="font-display text-h4 leading-tight">
@@ -30,7 +30,7 @@ export function ConciergeChat() {
           <p className="text-caption text-text-secondary">{AI_COPY.role}</p>
         </div>
         {hasConversation && (
-          <IconButton label="Mulai percakapan baru" icon={<RotateCcw aria-hidden className="size-4" />} onClick={reset} />
+          <IconButton label="Mulai percakapan baru" icon={<IconRefresh aria-hidden className="size-4" />} onClick={reset} />
         )}
       </div>
       <ConciergeConversation variant="page" inputId={CONCIERGE_PAGE_INPUT_ID} autoFocusInput={false} />

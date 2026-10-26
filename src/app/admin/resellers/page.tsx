@@ -1,4 +1,4 @@
-import { IconHeartHandshake as Handshake } from "@tabler/icons-react";
+import { IconHeartHandshake } from "@tabler/icons-react";
 
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
@@ -83,7 +83,7 @@ export default async function AdminResellersPage() {
           Partner ({overview.partners.length})
         </h2>
         {overview.partners.length === 0 ? (
-          <EmptyState className="py-8" icon={<Handshake className="size-8" strokeWidth={1.25} />} title="Belum ada partner" />
+          <EmptyState className="py-8" icon={<IconHeartHandshake className="size-8" strokeWidth={1.25} />} title="Belum ada partner" />
         ) : (
           <ul className="flex flex-col divide-y divide-border rounded-lg border border-border bg-background">
             {overview.partners.map((partner) => (

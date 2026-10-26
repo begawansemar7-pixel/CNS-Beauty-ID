@@ -1,4 +1,4 @@
-import { IconChevronRight as ChevronRight } from "@tabler/icons-react";
+import { IconChevronRight } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -107,7 +107,7 @@ export default async function ProductDetailPage({ params }: PageProps<"/produk/[
               </Link>
             </li>
             <li aria-hidden>
-              <ChevronRight className="size-3" />
+              <IconChevronRight className="size-3" />
             </li>
             <li>
               <Link href={ROUTES.products} className="hover:text-text-primary">
@@ -117,7 +117,7 @@ export default async function ProductDetailPage({ params }: PageProps<"/produk/[
             {product.category && (
               <>
                 <li aria-hidden>
-                  <ChevronRight className="size-3" />
+                  <IconChevronRight className="size-3" />
                 </li>
                 <li>
                   <Link href={productCategoryPath(product.category.slug)} className="hover:text-text-primary">
@@ -127,7 +127,7 @@ export default async function ProductDetailPage({ params }: PageProps<"/produk/[
               </>
             )}
             <li aria-hidden>
-              <ChevronRight className="size-3" />
+              <IconChevronRight className="size-3" />
             </li>
             <li aria-current="page" className="text-text-primary">
               {product.name}

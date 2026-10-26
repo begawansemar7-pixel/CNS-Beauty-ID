@@ -1,4 +1,4 @@
-import { IconAlertCircle as CircleAlert, IconMessageCircle as MessageCircle, IconShoppingBag as ShoppingBag } from "@tabler/icons-react";
+import { IconAlertCircle, IconMessageCircle, IconShoppingBag } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -46,7 +46,7 @@ export function CartView({ cart, result, products, whatsapp }: CartViewProps) {
     return (
       <Shell>
         <EmptyState
-          icon={<ShoppingBag className="size-8" strokeWidth={1.25} />}
+          icon={<IconShoppingBag className="size-8" strokeWidth={1.25} />}
           title="Keranjangmu masih kosong"
           description="Temukan produk yang sesuai dengan kebutuhan kulitmu."
           action={
@@ -95,7 +95,7 @@ export function CartView({ cart, result, products, whatsapp }: CartViewProps) {
                   </div>
                   {error && (
                     <p role="alert" className="flex items-center gap-1.5 text-body-s text-error">
-                      <CircleAlert aria-hidden className="size-4 shrink-0" />
+                      <IconAlertCircle aria-hidden className="size-4 shrink-0" />
                       {quoteErrorMessage(error)}
                     </p>
                   )}
@@ -196,7 +196,7 @@ function Summary({ quote, cart, hasLineErrors, whatsapp }: { quote: CartQuote; c
             rel="noopener noreferrer"
             className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-primary text-body-s font-medium text-text-primary transition-colors duration-(--duration-base) hover:bg-secondary"
           >
-            <MessageCircle aria-hidden className="size-4" />
+            <IconMessageCircle aria-hidden className="size-4" />
             Atau pesan via WhatsApp
             <span className="sr-only">(membuka WhatsApp)</span>
           </a>

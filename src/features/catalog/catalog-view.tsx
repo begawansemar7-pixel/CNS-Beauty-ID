@@ -1,4 +1,4 @@
-import { IconChevronLeft as ChevronLeft, IconChevronRight as ChevronRight, IconSearch as Search, IconX as X } from "@tabler/icons-react";
+import { IconChevronLeft, IconChevronRight, IconSearch, IconX } from "@tabler/icons-react";
 import Form from "next/form";
 import Link from "next/link";
 
@@ -98,7 +98,7 @@ export function CatalogView({ title, description, basePath, query, listing, face
                       className="inline-flex min-h-9 items-center gap-1.5 rounded-pill bg-secondary px-3 text-body-s text-text-primary hover:bg-brand-beige"
                     >
                       {chip.label}
-                      <X aria-hidden className="size-3.5" />
+                      <IconX aria-hidden className="size-3.5" />
                       <span className="sr-only">(hapus filter)</span>
                     </Link>
                   </li>
@@ -134,7 +134,7 @@ export function CatalogView({ title, description, basePath, query, listing, face
 function SearchForm({ basePath, query }: { basePath: string; query: CatalogQuery }) {
   return (
     <Form action={basePath} role="search" className="mt-8 flex max-w-xl items-center gap-2 rounded-pill border border-border bg-background py-1 pr-1 pl-4 focus-within:border-primary">
-      <Search aria-hidden className="size-4 shrink-0 text-text-secondary" />
+      <IconSearch aria-hidden className="size-4 shrink-0 text-text-secondary" />
       <label htmlFor="catalog-search" className="sr-only">
         Cari produk
       </label>
@@ -196,7 +196,7 @@ function Results({ basePath, query, listing }: { basePath: string; query: Catalo
   if (listing.products.length === 0) {
     return hasActiveFilters(query) ? (
       <EmptyState
-        icon={<Search className="size-8" strokeWidth={1.25} />}
+        icon={<IconSearch className="size-8" strokeWidth={1.25} />}
         title="Produk tidak ditemukan"
         description="Coba kata kunci lain atau kurangi filter yang dipilih."
         action={
@@ -220,7 +220,7 @@ function Results({ basePath, query, listing }: { basePath: string; query: Catalo
               href={buildCatalogHref(basePath, query, { halaman: listing.page - 1 })}
               className="inline-flex min-h-11 items-center gap-1 text-text-primary"
             >
-              <ChevronLeft aria-hidden className="size-4" /> Sebelumnya
+              <IconChevronLeft aria-hidden className="size-4" /> Sebelumnya
             </Link>
           ) : null}
           <span className="text-text-secondary">
@@ -231,7 +231,7 @@ function Results({ basePath, query, listing }: { basePath: string; query: Catalo
               href={buildCatalogHref(basePath, query, { halaman: listing.page + 1 })}
               className="inline-flex min-h-11 items-center gap-1 text-text-primary"
             >
-              Berikutnya <ChevronRight aria-hidden className="size-4" />
+              Berikutnya <IconChevronRight aria-hidden className="size-4" />
             </Link>
           ) : null}
         </nav>

@@ -1,4 +1,4 @@
-import { IconMoon as Moon, IconSparkles as Sparkles, IconSun as Sun } from "@tabler/icons-react";
+import { IconMoon, IconSparkles, IconSun } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -89,7 +89,7 @@ export default async function AccountRoutinePage() {
 
       {empty ? (
         <EmptyState
-          icon={<Sparkles className="size-8" strokeWidth={1.25} />}
+          icon={<IconSparkles className="size-8" strokeWidth={1.25} />}
           title="Belum ada rutinitas"
           description="Ikuti Skin Quiz untuk rutinitas yang disarankan, atau susun sendiri langkah demi langkah di bawah."
           action={<ButtonLink href={ROUTES.skinQuiz}>Mulai Skin Quiz</ButtonLink>}
@@ -97,8 +97,8 @@ export default async function AccountRoutinePage() {
       ) : (
         <>
           <div className="grid gap-4 wide:grid-cols-2">
-            <RoutineList title="Pagi" icon={<Sun className="size-5" strokeWidth={1.5} />} items={routine!.view.am} />
-            <RoutineList title="Malam" icon={<Moon className="size-5" strokeWidth={1.5} />} items={routine!.view.pm} />
+            <RoutineList title="Pagi" icon={<IconSun className="size-5" strokeWidth={1.5} />} items={routine!.view.am} />
+            <RoutineList title="Malam" icon={<IconMoon className="size-5" strokeWidth={1.5} />} items={routine!.view.pm} />
           </div>
           <div className="flex flex-wrap items-start gap-3">
             <RoutineCartButton productIds={purchasableProductIds(routine!.view)} />

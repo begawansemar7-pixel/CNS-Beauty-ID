@@ -1,6 +1,6 @@
 "use client";
 
-import { IconX as X } from "@tabler/icons-react";
+import { IconX } from "@tabler/icons-react";
 import { useActionState, useTransition } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -56,7 +56,7 @@ export function AppliedCoupon({ code, description }: { code: string; description
         onClick={() => startTransition(async () => void (await removeCouponAction()))}
         className="inline-flex min-h-9 items-center gap-1 text-caption font-medium text-text-primary underline underline-offset-4 disabled:opacity-50"
       >
-        <X aria-hidden className="size-3.5" />
+        <IconX aria-hidden className="size-3.5" />
         Hapus kupon
       </button>
     </div>
