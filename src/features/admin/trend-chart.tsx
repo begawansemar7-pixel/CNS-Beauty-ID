@@ -1,11 +1,8 @@
 import { Skeleton } from "@/components/ui/states";
+import { TrendChart } from "@/features/admin/trend-chart-plot";
 import { InsightError } from "@/features/admin/insight-error";
 import { getAnalyticsTrend } from "@/services/admin/analytics";
 import type { Trend, TrendRange } from "@/services/analytics/trend";
-
-const W = 640;
-const H = 200;
-const PAD = 8;
 
 const number = (value: number) => value.toLocaleString("id-ID");
 const percent = (value: number | null) => (value === null ? "—" : `${(value * 100).toLocaleString("id-ID", { maximumFractionDigits: 1 })}%`);
@@ -22,12 +19,7 @@ const COLUMNS = [
   { key: "ORDER_CREATED", label: "Pesanan" },
 ] as const;
 
-function points(values: number[], max: number): string {
-  const step = values.length > 1 ? (W - PAD * 2) / (values.length - 1) : 0;
-  return values.map((value, index) => `${PAD + index * step},${H - PAD - (value / max) * (H - PAD * 2)}`).join(" ");
-}
-
-function TrendChart({ trend, months }: { trend: Trend; months: TrendRange }) {
+function TrendChartFigure({ trend, months }: { trend: Trend; months: TrendRange }) {
   const pages = trend.weeks.map((week) => week.pageVisitors);
   const orders = trend.weeks.map((week) => week.orderVisitors);
   const max = Math.max(1, ...pages, ...orders);
@@ -44,11 +36,7 @@ function TrendChart({ trend, months }: { trend: Trend; months: TrendRange }) {
         </span>
         <span className="ml-auto">Maks. {number(max)} / minggu</span>
       </div>
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={summary} className="h-48 w-full" preserveAspectRatio="none">
-        <line x1={PAD} x2={W - PAD} y1={H - PAD} y2={H - PAD} className="stroke-border" strokeWidth={1} vectorEffect="non-scaling-stroke" />
-        <polyline points={points(pages, max)} fill="none" className="stroke-brand-cocoa" strokeWidth={2} vectorEffect="non-scaling-stroke" />
-        <polyline points={points(orders, max)} fill="none" className="stroke-ai-accent" strokeWidth={2} vectorEffect="non-scaling-stroke" />
-      </svg>
+      <TrendChart weeks={trend.weeks} summary={summary} />
       <figcaption className="flex justify-between text-caption text-text-secondary">
         <span>{dayLabel(trend.weeks[0]?.weekStart ?? trend.from)}</span>
         <span>{dayLabel(trend.to)}</span>
@@ -70,7 +58,7 @@ export async function TrendSection({ months, errorHref }: { months: TrendRange; 
         <p className="text-body-s text-text-secondary">Ringkasan harian tersedia setelah proses malam pertama.</p>
       ) : (
         <>
-          <TrendChart trend={trend} months={months} />
+          <TrendChartFigure trend={trend} months={months} />
           <div className="overflow-x-auto">
             <table className="w-full min-w-xl text-left text-body-s">
               <caption className="sr-only">Total bulanan dari ringkasan harian</caption>
